@@ -1,0 +1,1606 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.add('js')</script>
+<title>111, Inc. (Nasdaq: YI) | Investor Relations Concept</title>
+<meta name="description" content="An independent design concept for the 111, Inc. (Nasdaq: YI) investor relations page. Not affiliated with 111, Inc.; the official IR site is https://ir.111.com.cn/.">
+<link rel="icon" href="img/oneoneone-favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fragment+Mono&amp;family=Noto+Serif+SC:wght@600&amp;family=Schibsted+Grotesk:wght@400..800&amp;family=STIX+Two+Text:ital,wght@0,400..700;1,400..700&amp;display=swap" rel="stylesheet">
+<style>
+/* mc:tokens */
+:root{
+  /* palette.mjs --brand "#e81820,#202850" --neutral-hue 274 --strategy restrained  (restrained)
+     accent   #e81820 oklch(0.592 0.232 27.2)   real: the logo's red 1 (pixel sample), fills and marks only
+     deep     #202850 oklch(0.292 0.073 272.6)  real: the logo's navy 药网, ink and deep bands
+     tints are cut from the navy neutral hue (274), not from the red; no third hue (the site's #244e96 blue is not adopted)
+     measured: white on --accent-ink 7.86:1, --accent-ink on --paper 7.63:1, --text-mid on --tint 5.64:1 */
+  --H: 27.2; --Hn: 274;
+  --accent:        oklch(0.592 0.232 27.2);
+  --accent-lo:     oklch(0.592 0.232 27.2 / 0.12);
+  --accent-lt:     oklch(0.86 0.075 27.2); /* bright accent ON dark surfaces */
+  --accent-ink:    oklch(0.46 0.187 27.2); /* TEXT, links, primary-button background */
+  --accent-ink-d:  oklch(0.40 0.163 27.2); /* hover */
+  --ink:           oklch(0.26 0.032 274);
+  --deep:          oklch(0.235 0.058 274);
+  --deep-2:        oklch(0.175 0.045 274);
+  --paper:         oklch(0.99 0.004 274);
+  --card:          oklch(0.996 0.001 274);
+  --tint:          oklch(0.962 0.012 274);
+  --tint-2:        oklch(0.905 0.022 274);
+  --text:          oklch(0.31 0.03 274);
+  --text-mid:      oklch(0.49 0.03 274);
+  --line:          oklch(0.30 0.012 274 / 0.14);
+  --line-d:        oklch(0.98 0.009 274 / 0.16);
+  /* surface-slot defaults (foundation surface block); retuned in surface.css */
+  --sheet-edge:    oklch(0.40 0.06 274 / 0.22);
+  --blind:         oklch(1.00 0.000 0 / 0.5);
+  --blind-k:       oklch(1.00 0.000 0 / 0.85);
+  --sheet-neg:     oklch(0.98 0.009 274 / 0.05);
+  --serif:         'STIX Two Text', 'Noto Serif SC', Georgia, serif;
+  --sans:          'Schibsted Grotesk', system-ui, sans-serif;
+  --mono:          'Fragment Mono', ui-monospace, monospace;
+  --cjk:           'Noto Serif SC', 'Songti SC', 'SimSun', serif;
+  --wrap: 1140px; --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+/* mc:substrate 9576b9be1505 */
+/* mediaconsole substrate: inlined by scripts/scaffold.mjs, identical on every page. Never edit or retype it;
+   override in page/layer.css or page/surface.css (both load after it). Band: all. Hue-parametric: colours are
+   tokens or oklch(... var(--Hn)). Integrity: opaque nav, content visible without JS, print and forced-colors safe. */
+:where(:root){--wrap:1140px;--ease:cubic-bezier(0.22, 1, 0.36, 1)}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;scroll-padding-top:88px}
+body{font-family:var(--sans);color:var(--text);background:var(--paper);font-size:16px;line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none} img,svg{display:block;max-width:100%} button{font:inherit;cursor:pointer}
+::selection{background:var(--accent-lt);color:var(--deep)}
+:focus-visible{outline:2px solid var(--accent-ink);outline-offset:3px;border-radius:2px}
+.sec-dark :focus-visible,.snapshot :focus-visible,footer :focus-visible{outline-color:var(--accent-lt)}
+.wrap{width:min(var(--wrap),100% - 44px);margin-inline:auto}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.skip-link{position:absolute;left:12px;top:-60px;z-index:200;background:var(--deep);color:#fff;padding:10px 16px;border-radius:6px;font-size:.85rem;transition:top .2s var(--ease)}
+.skip-link:focus{top:12px}
+.concept-note{background:var(--tint);color:var(--accent-ink-d);font-size:.78rem;text-align:center;padding:8px 16px;position:relative;z-index:101}
+.concept-note a{color:inherit;font-weight:600;text-decoration:underline}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.08;letter-spacing:-.01em;color:var(--ink)}
+h1{font-size:clamp(2.35rem,5.3vw,4rem)} h2{font-size:clamp(1.7rem,3.4vw,2.5rem)} h3{font-size:clamp(1.15rem,2vw,1.4rem)}
+p{max-width:68ch}
+.eyebrow{font-family:var(--mono);font-size:.72rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-ink);display:inline-flex;align-items:center;gap:9px;margin-bottom:16px}
+.eyebrow::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--accent);flex:none}
+.lead{font-size:clamp(1.08rem,1.7vw,1.3rem);line-height:1.55;color:var(--text-mid)}
+/* four house buttons: primary + ghost on light stock, primary-light + ghost-light on dark stock.
+   Text on dark uses --accent-lt, never --accent (D16: --accent may be a mid-L real brand colour; it is a fill). */
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:11px 22px;border-radius:8px;font-family:var(--sans);font-size:.82rem;font-weight:600;letter-spacing:.02em;border:1.5px solid transparent;background:transparent;transition:background .2s var(--ease),border-color .2s var(--ease),color .2s var(--ease),transform .2s var(--ease)}
+.btn:hover{transform:translateY(-1px)} .btn .arw{font-family:var(--mono);transition:transform .2s var(--ease)} .btn:hover .arw{transform:translateX(3px)}
+.btn-primary{background:var(--accent-ink);color:#fff} .btn-primary:hover{background:var(--accent-ink-d)}
+.btn-ghost{border-color:var(--tint-2);color:var(--accent-ink)} .btn-ghost:hover{background:var(--tint);border-color:var(--accent-ink)}
+.btn-primary-light{background:var(--accent-lt);color:var(--deep)} .btn-primary-light:hover{background:var(--tint)}
+.btn-ghost-light{border-color:oklch(0.98 0.01 var(--Hn)/.4);color:#fff} .btn-ghost-light:hover{background:oklch(0.98 0.01 var(--Hn)/.1)}
+/* nav: opaque by rule (no translucency, no blur); markup is emitted by scaffold.mjs from page.json */
+.site-nav{position:sticky;top:0;z-index:100;background:var(--paper);border-bottom:1px solid var(--line);transition:box-shadow .3s var(--ease)}
+.site-nav.scrolled{box-shadow:0 6px 24px oklch(0.3 0.02 var(--Hn)/.07)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px;gap:20px}
+.nav-brand{display:flex;align-items:center;gap:12px;min-height:44px;min-width:0}
+.nav-logo{display:flex;align-items:center;flex:none}
+.nav-logo img{height:26px;width:auto}
+.nav-name{font-family:var(--serif);font-size:1.2rem;line-height:1.1;color:var(--ink)}
+.nav-tick{font-family:var(--mono);font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap;color:var(--text-mid);border:1px solid var(--line);border-radius:5px;padding:4px 8px}
+.nav-links{display:flex;align-items:center;gap:24px;list-style:none}
+.nav-links a:not(.btn){font-size:.86rem;font-weight:500;color:var(--text-mid);transition:color .2s var(--ease)}
+.nav-links a:not(.btn):hover{color:var(--accent-ink)}
+.nav-links a.active{color:var(--ink);text-decoration:underline;text-underline-offset:7px;text-decoration-color:var(--accent);text-decoration-thickness:2px}
+.nav-burger{display:none;flex-direction:column;gap:5px;width:44px;height:44px;align-items:center;justify-content:center;background:none;border:none}
+.nav-burger span{width:22px;height:2px;background:var(--ink);border-radius:2px;transition:transform .25s var(--ease),opacity .2s}
+.nav-burger[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.nav-burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+/* bands: FLAT FILLS, the floor only; page/surface.css must override them (verify FAILs flat pages) */
+main{display:block;overflow-x:clip}   /* a translated reveal or wide motif can never widen the page */
+main>section{padding:clamp(56px,8vw,104px) 0}
+.sec-white{background:var(--paper)} .sec-tint{background:var(--tint)}
+.sec-dark{background:var(--deep);color:oklch(0.9 0.008 var(--Hn))}
+.sec-dark h1,.sec-dark h2,.sec-dark h3{color:#fff} .sec-dark .eyebrow{color:var(--accent-lt)} .sec-dark .eyebrow::before{background:var(--accent)}
+.sec-dark .lead{color:oklch(0.86 0.01 var(--Hn))}
+.sec-head{max-width:660px;margin-bottom:clamp(36px,5vw,56px)} .sec-head p{margin-top:14px}
+/* data sits on its own plate: table.fin cells are transparent, never paint a band behind figures */
+.table-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--card)}
+table.fin{width:100%;border-collapse:collapse;min-width:540px;font-size:.92rem}
+table.fin caption{text-align:left;font-family:var(--mono);font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;color:var(--text-mid);padding:14px 20px;border-bottom:1px solid var(--line);background:var(--card)}
+table.fin th,table.fin td{text-align:left;padding:14px 20px;border-bottom:1px solid var(--line)}
+table.fin tbody tr:last-child td{border-bottom:none}
+table.fin td.num{font-family:var(--mono);text-align:right;color:var(--ink);font-weight:500}
+table.fin thead th{font-weight:700;color:var(--ink);background:var(--card)}
+footer{background:var(--deep);color:oklch(0.76 0.008 var(--Hn));padding:56px 0 28px}
+.fls{padding:32px 0 0;font-size:.78rem;line-height:1.7;color:oklch(0.68 0.008 var(--Hn));max-width:98ch} .fls b{color:oklch(0.85 0.01 var(--Hn))}
+.fls a{color:inherit;text-decoration:underline} .fls+.fls{padding-top:14px}
+.market-note{padding-top:18px;margin-top:18px;border-top:1px solid var(--line-d);font-size:.72rem;line-height:1.7;color:oklch(0.68 0.008 var(--Hn))}
+/* reveal: hidden only once motion.js has set html.js, so no-JS and JS failure show everything.
+   Direction variants set --reveal-from (components/motion-extra.css); stagger with style="--d:.08s". */
+.reveal{transition:opacity .65s var(--ease),transform .65s var(--ease);transition-delay:var(--d,0s)}
+.js .reveal:not(.in){opacity:0;transform:var(--reveal-from,translateY(20px))}
+/* motif pause: motion.js toggles .paused on #hero-motif off-screen, in a hidden tab, or via [data-motif-toggle] */
+.paused,.paused::before,.paused::after,.paused *,.paused *::before,.paused *::after{animation-play-state:paused!important}
+@media (max-width:900px){
+  .nav-burger{display:flex}
+  .nav-links{position:absolute;top:72px;left:0;right:0;flex-direction:column;align-items:flex-start;gap:2px;background:var(--paper);border-bottom:1px solid var(--line);padding:12px 22px 20px;opacity:0;transform:translateY(-10px);visibility:hidden;pointer-events:none;transition:opacity .28s var(--ease),transform .28s var(--ease),visibility .28s;box-shadow:0 16px 30px oklch(0.3 0.02 var(--Hn)/.08)}
+  .nav-links.open{opacity:1;transform:none;visibility:visible;pointer-events:auto}
+  .nav-links li{width:100%} .nav-links a:not(.btn){display:block;padding:12px 0} .nav-links .btn{margin-top:10px;display:inline-flex}
+}
+@media (max-width:768px){ .footer-links a,.contact-col a{min-height:44px;display:flex;align-items:center} }   /* 44px tap targets; (0,1,1) so layer.css can restyle */
+@media (prefers-reduced-motion:reduce){
+  *{scroll-behavior:auto!important}
+  .reveal{transition:none} .js .reveal:not(.in){opacity:1;transform:none}
+  .btn:hover{transform:none} [class*="motif"]{animation:none!important} [data-motif-toggle]{display:none}
+}
+/* print (D12): decoration off, every reveal shown, dark bands re-inked dark-on-white (backgrounds may not print).
+   A custom dark band must carry .sec-dark so this, its focus ring and its heading colour all apply. */
+@media print{
+  *,*::before,*::after{background-image:none!important;box-shadow:none!important;text-shadow:none!important;animation:none!important;transition:none!important}
+  .site-nav{position:static} .nav-burger,.skip-link,[data-motif-toggle]{display:none!important}
+  .js .reveal:not(.in){opacity:1!important;transform:none!important}
+  .sec-dark,.sec-dark *,.hero,.hero *,.snapshot,.snapshot *,footer,footer *{background-color:transparent!important;color:#111!important;border-color:#bbb!important}
+  .sec-white,.sec-tint,.sec-dark,footer{background-color:#fff!important;border-top:1px solid #bbb}
+  .btn{background:transparent!important;color:#111!important;border-color:#111!important}
+  .table-scroll{overflow:visible;background:#fff!important}
+  main>section{padding:28px 0}
+}
+/* forced colors: the UA repaints every band to Canvas, so bands get a system seam instead */
+@media (forced-colors:active){
+  .sec-white,.sec-tint,.sec-dark,footer{background-image:none;border-top:1px solid CanvasText}
+  .btn{border-color:ButtonText}
+  .nav-burger span{forced-color-adjust:none;background:CanvasText}
+  .table-scroll{border-color:CanvasText}
+}
+/* mc:component motion-extra */
+/* motion-extra: reveal direction variants for the substrate's single .reveal + --d observer. Band: either.
+   Integrity: they only set --reveal-from, so .in and reduced motion always win (no ordering trap); never a 2nd observer. */
+.reveal.from-left{--reveal-from:translateX(-28px)}
+.reveal.from-right{--reveal-from:translateX(28px)}
+.reveal.scale-up{--reveal-from:scale(.96) translateY(10px)}
+@media (max-width:760px){.reveal.from-left,.reveal.from-right{--reveal-from:translateY(20px)}}   /* no sideways entry on phones */
+/* mc:component counters */
+/* counters: fixed-width digits so a counting card never reflows. Band: either.
+   Integrity: count only a sourced figure whose text is already the final value. */
+[data-count]{font-variant-numeric:tabular-nums}
+/* mc:layer */
+/* 111, Inc. visible layer. Prospectus: numbered Parts with a sticky margin rail (part, name, as-of date, sources), ruled ledgers, source lines.
+   Shape language: the logo's red slab "1" (list bullets and the part marker), nothing else decorative. Type: STIX Two Text, Schibsted Grotesk,
+   Fragment Mono; Noto Serif SC for the Chinese brand names. Red (--accent) is fills and marks; --accent-ink is text. */
+:root{--slab:polygon(89.8% 0%,12.2% 29.7%,38.8% 30.8%,38.8% 33%,2% 100%,57% 100%,69% 94.5%,73.5% 87.9%,75.5% 75.8%,100% 7.7%,98% 0%)}
+
+/* ---------- type ---------- */
+body{font-family:var(--sans)}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:500}
+h1{font-size:clamp(2.4rem,4.9vw,3.9rem);letter-spacing:-.018em;line-height:1.05}
+h1 em{font-style:italic;color:var(--accent-ink)}
+h2{font-size:clamp(1.8rem,3.3vw,2.7rem);line-height:1.1;letter-spacing:-.012em}
+.zh{font-family:var(--cjk);font-weight:600;letter-spacing:.02em;white-space:nowrap}
+.eyebrow{font-family:var(--mono);font-weight:400;font-size:.72rem;letter-spacing:.16em}
+.sec-head{max-width:none;margin-bottom:clamp(24px,3.4vw,38px)}
+.sec-head h2{margin-bottom:14px;max-width:27ch}
+.sec-head p{max-width:70ch;font-size:1.02rem}
+.src{font-size:.78rem;color:var(--text-mid);line-height:1.6;margin-top:10px;max-width:none}
+.src-l{color:var(--accent-ink);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px;white-space:nowrap}
+.src-l:hover{color:var(--accent-ink-d)}
+.sec-dark .src-l{color:var(--accent-lt)} .sec-dark .src{color:oklch(0.82 0.015 274)}
+.sub{font-family:var(--serif);font-weight:500;font-size:1.32rem;line-height:1.2;color:var(--ink);margin:46px 0 16px;padding-bottom:9px;border-bottom:1px solid var(--line)}
+.sec-dark .sub{color:#fff;border-bottom-color:var(--line-d)}
+.two-up .sub:first-child,.claims .sub{margin-top:0}
+ul.plain{list-style:none;display:grid;gap:12px}
+ul.plain li{position:relative;padding-left:24px;font-size:.92rem;line-height:1.6;max-width:68ch}
+ul.plain li::before{content:'';position:absolute;left:2px;top:.42em;width:8px;height:15px;background:var(--accent);clip-path:var(--slab)}
+ul.plain b{color:var(--ink)}
+.sec-dark ul.plain b{color:#fff}
+
+/* ---------- hero ---------- */
+.hero{padding:clamp(36px,5.5vw,76px) 0 clamp(36px,5vw,60px);position:relative}
+.hero-in{display:grid;grid-template-columns:minmax(0,1.32fr) minmax(0,.8fr);grid-template-areas:"main side" "main motif" "asof asof";column-gap:clamp(32px,5vw,72px);row-gap:26px;align-items:start}
+.hero-main{grid-area:main;min-width:0}
+.hero-lede{font-family:var(--serif);font-size:clamp(1.1rem,1.6vw,1.28rem);line-height:1.55;color:var(--text);max-width:54ch;margin-top:20px}
+.hero-main h1{max-width:17ch}
+.hero-stat{position:relative;margin:34px 0 28px;padding-top:20px;border-top:1px solid var(--ink)}
+.hero-stat::before{content:'';position:absolute;left:0;top:-1px;width:44px;height:4px;background:var(--accent)}
+.hs-v{font-family:var(--serif);font-weight:700;font-size:clamp(3.8rem,8.6vw,6.8rem);line-height:.92;letter-spacing:-.03em;color:var(--ink);white-space:nowrap}
+.hs-plus{margin-left:.04em}
+.hs-t{margin-top:12px;max-width:50ch}
+.hs-l{font-weight:600;font-size:1.02rem;color:var(--ink);line-height:1.35}
+.hs-n{font-size:.8rem;color:var(--text-mid);margin-top:6px;line-height:1.55}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px}
+.readfirst{grid-area:side;background:var(--card);border:1px solid var(--line);border-top:3px solid var(--ink);padding:20px 24px 6px;min-width:0}
+.rf-h{font-family:var(--mono);font-weight:400;font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-ink);margin-bottom:4px}
+.rf-list{list-style:none;counter-reset:rf}
+.rf-list li{counter-increment:rf;position:relative;padding:15px 0 16px 42px;border-top:1px solid var(--line)}
+.rf-list li:first-child{border-top:0}
+.rf-list li::before{content:counter(rf);position:absolute;left:0;top:12px;font-family:var(--serif);font-size:1.9rem;line-height:1;color:var(--ink)}
+.rf-k{display:block;font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-mid);margin-bottom:4px}
+.rf-list p{font-size:.88rem;line-height:1.5;color:var(--text);max-width:none}
+.rf-list a{color:var(--accent-ink);font-weight:600;text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
+.hero-motif{grid-area:motif;width:100%;max-width:430px;justify-self:end;min-width:0}
+.hm{width:100%;height:auto;overflow:visible}
+.hm-slab{fill:none;stroke:var(--ink);stroke-opacity:.4;stroke-width:1.3;vector-effect:non-scaling-stroke}
+.hm-r{fill:var(--accent);stroke:none}
+.motif-cap{transform:translate(var(--x),var(--y)) rotate(14deg);animation:motif-drop 9s cubic-bezier(.5,0,.9,.55) infinite;animation-delay:calc(var(--i) * 3s - 9s + var(--j) * 1.1s)}
+.cap-a{fill:var(--paper);stroke:var(--ink);stroke-width:.8}
+.cap-b{fill:var(--ink)}
+@keyframes motif-drop{0%{transform:translate(var(--x),var(--y)) rotate(14deg);opacity:0}4%{opacity:1}24%{opacity:1}30%,100%{transform:translate(calc(var(--x) - 26px),calc(var(--y) + 104px)) rotate(14deg);opacity:0}}
+.hm .motif-slab{animation:motif-wake 9s ease-in-out infinite}
+.hm .motif-slab:nth-of-type(2){animation-delay:-6s}
+.hm .motif-slab:nth-of-type(3){animation-delay:-3s}
+@keyframes motif-wake{0%,40%,100%{stroke-opacity:.4}12%,28%{stroke-opacity:.9}}
+#hero-motif.paused .motif-cap,#hero-motif.paused .motif-slab{animation-play-state:paused}
+.hero-asof{grid-area:asof;font-family:var(--mono);font-size:.7rem;line-height:1.6;color:var(--text-mid);border-top:1px solid var(--line);padding-top:14px;max-width:none}
+
+/* ---------- parts: the margin rail ---------- */
+.part{padding:clamp(52px,7vw,92px) 0}
+.part-grid{display:grid;grid-template-columns:minmax(0,1fr)}
+.part-body{min-width:0}
+.part-rail{border-top:2px solid var(--ink);padding-top:12px}
+.part-no{font-family:var(--mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-ink);display:flex;align-items:center;gap:9px}
+.part-no::before{content:'';width:9px;height:17px;background:var(--accent);clip-path:var(--slab);flex:none}
+.part-name{font-family:var(--serif);font-size:1.7rem;line-height:1.1;color:var(--ink);margin:8px 0 10px}
+.part-asof{font-family:var(--mono);font-size:.68rem;line-height:1.55;color:var(--text-mid);margin-bottom:10px}
+.part-src{font-size:.78rem;line-height:1.8}
+.sec-dark .part-rail{border-top-color:var(--accent-lt)}
+.sec-dark .part-no{color:var(--accent-lt)} .sec-dark .part-no::before{background:var(--accent-lt)}
+.sec-dark .part-name{color:#fff} .sec-dark .part-asof{color:oklch(0.82 0.015 274)}
+@media (min-width:1100px){
+  .part-grid{grid-template-columns:168px minmax(0,1fr);column-gap:48px}
+  .part-rail{position:sticky;top:96px}
+}
+@media (max-width:1099px){
+  .part-rail{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 22px;margin-bottom:26px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+  .sec-dark .part-rail{border-bottom-color:var(--line-d)}
+  .part-name{font-size:1.3rem;margin:0}
+  .part-asof{margin:0}
+  .part-src br{display:none} .part-src a{margin-right:14px}
+}
+
+/* ---------- layout helpers ---------- */
+.two-up{display:grid;gap:40px;margin-top:8px;grid-template-columns:minmax(0,1fr)}
+.two-up>*{min-width:0}
+.two-up+.two-up,.ov-caveat+.two-up{margin-top:48px}
+@media (min-width:900px){.two-up{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.two-up-w{grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr)}}
+
+/* ---------- tables ---------- */
+.table-scroll{background:var(--card);border:1px solid var(--line);border-radius:3px}
+table.fin{font-size:.87rem;min-width:520px}
+table.fin caption{font-family:var(--mono);font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;color:var(--text-mid);padding:12px 16px;background:var(--card);border-bottom:1px solid var(--ink)}
+table.fin th,table.fin td{padding:10px 16px;vertical-align:baseline}
+table.fin thead th{font-family:var(--mono);font-weight:400;font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-mid);background:var(--card);border-bottom:1px solid var(--line)}
+table.fin tbody th{font-weight:500;color:var(--text);text-align:left}
+table.fin td.num,table.fin th.num{font-family:var(--sans);font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap;font-weight:500;color:var(--ink)}
+table.fin thead th.num{font-weight:400;color:var(--text-mid)}
+table.fin tr.tot th,table.fin tr.tot td{font-weight:700;color:var(--ink);border-top:1px solid var(--ink)}
+table.fin tr.der th,table.fin tr.der td{color:var(--text-mid);font-style:italic;font-weight:400}
+table.fin tbody tr:last-child td,table.fin tbody tr:last-child th{border-bottom:none}
+table.fin.mix,table.fin.bs,table.fin.cf,table.fin.emp{min-width:0}
+table.fin.own{min-width:470px;font-size:.82rem}
+table.fin.own th,table.fin.own td{padding:9px 12px}
+table.fin.led{min-width:640px}
+table.fin.led td.num{text-align:left;font-weight:400}
+.own-n{display:block;font-size:.72rem;font-weight:400;color:var(--text-mid);line-height:1.4;margin-top:2px}
+.lg-d{white-space:nowrap}
+.lg-f{font-family:var(--mono);font-size:.76rem;white-space:nowrap}
+.lg-a a{font-family:var(--mono);font-size:.72rem;color:var(--accent-ink);text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
+details.older{margin-top:18px}
+details.older summary{cursor:pointer;min-height:44px;display:flex;align-items:center;font-family:var(--mono);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-ink)}
+details.older[open] summary{margin-bottom:10px}
+
+/* ---------- part I ---------- */
+.mixbar{margin:34px 0 8px}
+.mb-cap{font-size:.95rem;color:var(--text);margin-bottom:12px}
+.mb-cap b{font-family:var(--serif);font-size:1.3rem;font-weight:500;color:var(--ink)}
+.mb-track{display:flex;height:28px;background:var(--tint-2);overflow:hidden}
+.mb-seg{display:block;height:100%;width:var(--w);flex:none;transform-origin:left center}
+.mb-b2b{background:var(--ink)} .mb-b2c{background:var(--accent)} .mb-svc{background:var(--text-mid)}
+.mb-key{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:14px}
+.mb-key li{font-size:.84rem;line-height:1.4}
+.mb-key li::before{content:'';display:block;width:28px;height:4px;margin-bottom:9px;background:var(--ink)}
+.mb-key .k-b2c::before{background:var(--accent)} .mb-key .k-svc::before{background:var(--text-mid)}
+.mb-key b{display:block;font-family:var(--serif);font-size:1.55rem;font-weight:500;color:var(--ink);line-height:1.1}
+.mb-key span{display:block;color:var(--text-mid)}
+.mb-note{font-size:.76rem;color:var(--text-mid);margin-top:10px;max-width:none}
+@media (prefers-reduced-motion:no-preference){
+  .js .mixbar .mb-seg,.js .revbars .rb-seg,.js .ctl .ctl-seg,.js .ov .ov-seg{transform:scaleX(0);transform-origin:left center}
+  .js .mixbar.in .mb-seg,.js .revbars.in .rb-seg,.js .ctl.in .ctl-seg,.js .ov.in .ov-seg{transform:none;transition:transform 1s var(--ease) .2s}
+}
+.platforms{list-style:none;margin:6px 0}
+.pf{display:grid;grid-template-columns:64px minmax(0,1fr);gap:22px;padding:22px 0;border-bottom:1px solid var(--line)}
+.pf-mark{width:64px;height:64px;border-radius:50%;border:1px solid var(--line);background:var(--card)}
+.pf-h{font-size:1.38rem;line-height:1.2;color:var(--ink);margin-bottom:6px}
+.pf-h small{display:block;font-family:var(--mono);font-weight:400;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-ink);margin-top:5px}
+.pf p{font-size:.92rem;max-width:74ch}
+.squeeze{background:var(--tint);border:1px solid var(--line);padding:22px 26px;display:grid;gap:12px}
+.squeeze p{font-family:var(--serif);font-size:1.04rem;line-height:1.6;max-width:none}
+.onfile{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:44px;border-top:1px solid var(--ink);border-bottom:1px solid var(--line)}
+.onfile>div{padding:18px 22px 20px 0}
+.onfile>div+div{padding-left:22px;border-left:1px solid var(--line)}
+.onfile dt{font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-mid)}
+.onfile dd{font-family:var(--serif);font-size:2.1rem;line-height:1.15;color:var(--ink);margin-top:4px;font-variant-numeric:lining-nums}
+.onfile dd.n{font-family:var(--sans);font-size:.8rem;line-height:1.5;color:var(--text-mid);margin-top:4px}
+
+/* ---------- part II ---------- */
+.revbars{background:var(--card);border:1px solid var(--line);padding:20px 24px 22px;margin:28px 0 6px}
+.revbars figcaption{font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;color:var(--text-mid)}
+.rb-group{margin-top:16px}
+.rb-h{font-family:var(--serif);font-size:1.05rem;color:var(--ink);margin-bottom:8px}
+.rb-row{display:grid;grid-template-columns:64px minmax(0,1fr) 86px;gap:14px;align-items:center;margin-bottom:8px}
+.rb-k{font-family:var(--mono);font-size:.7rem;color:var(--text-mid)}
+.rb-track{height:22px;background:var(--tint)}
+.rb-seg{display:block;height:100%;width:var(--w);background:var(--ink)}
+.rb-row:last-child .rb-seg{background:var(--accent)}
+.rb-v{font-variant-numeric:tabular-nums;text-align:right;font-weight:600;color:var(--ink);font-size:.88rem}
+.claims{margin:44px 0;border:1px solid var(--line);background:var(--card);padding:22px 26px 20px}
+.claims-flag{font-family:var(--mono);font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;color:var(--text-mid);margin:10px 0 14px;max-width:none}
+
+/* ---------- part III (the signature) ---------- */
+.ov{margin:34px 0 18px;padding:26px 28px 22px;background:oklch(1 0 0 / .04);border:1px solid var(--line-d)}
+.ov-cap{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:oklch(0.86 0.012 274)}
+.ov-cap b{color:#fff;font-weight:400}
+.ov-date{margin-top:22px}
+.ov-d{font-family:var(--serif);font-size:1.28rem;color:#fff;margin-bottom:10px}
+.ov-d span{font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:oklch(0.82 0.015 274);margin-left:10px}
+.ov-row{display:grid;grid-template-columns:150px minmax(0,1fr) 78px;gap:14px;align-items:center;margin-bottom:10px}
+.ov-k{font-size:.82rem;color:oklch(0.92 0.01 274)}
+.ov-track{display:flex;height:42px;background:oklch(1 0 0 / .07)}
+.ov-seg{display:flex;align-items:center;justify-content:center;height:100%;width:var(--w);flex:none;min-width:0;overflow:hidden}
+.ov-seg b{font-size:.82rem;font-weight:700;font-variant-numeric:tabular-nums}
+.ov-seg.s1{background:var(--accent-lt);color:var(--deep)}
+.ov-seg.s2{background:var(--accent-ink);color:#fff}
+.ov-seg.s3{box-shadow:inset 0 0 0 1.5px var(--accent-lt);color:var(--accent-lt)}
+.ov-seg.s0{background:var(--accent-ink)}
+.ov-seg.h{background:oklch(0.95 0.012 274)}
+.ov-tot{font-family:var(--serif);font-size:1.3rem;color:#fff;text-align:right;font-variant-numeric:tabular-nums}
+.ov-legend{list-style:none;display:flex;flex-wrap:wrap;gap:8px 22px;margin:12px 0 0 164px;font-size:.78rem;color:oklch(0.88 0.01 274)}
+.ov-legend li{display:flex;align-items:center}
+.ov-legend i{display:inline-block;width:13px;height:13px;margin-right:8px;flex:none}
+.ov-legend .s1 i{background:var(--accent-lt)} .ov-legend .s2 i{background:var(--accent-ink)} .ov-legend .s3 i{box-shadow:inset 0 0 0 1.5px var(--accent-lt)}
+.ov-read{margin-top:22px;padding-top:14px;border-top:1px solid var(--line-d);font-size:.95rem;color:#fff;max-width:none}
+.ov-caveat p{max-width:none;font-size:.86rem;line-height:1.65;color:oklch(0.9 0.01 274);border:1px solid var(--line-d);padding:16px 22px}
+.ov-caveat b{color:#fff}
+.terms{border-bottom:1px solid var(--line)}
+.terms>div{display:grid;grid-template-columns:128px minmax(0,1fr);gap:4px 18px;padding:12px 0;border-top:1px solid var(--line)}
+.terms dt{font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-mid);padding-top:4px}
+.terms dd{font-size:.9rem;line-height:1.55;color:var(--text)}
+.terms dd b{color:var(--ink)}
+.sec-dark .terms,.sec-dark .terms>div{border-color:var(--line-d)}
+.sec-dark .terms dt{color:oklch(0.82 0.015 274)} .sec-dark .terms dd{color:oklch(0.93 0.01 274)}
+.plans{list-style:none;counter-reset:pl}
+.plans li{counter-increment:pl;display:grid;grid-template-columns:34px minmax(0,1fr);padding:11px 0;border-top:1px solid var(--line-d);font-size:.9rem;line-height:1.55;color:oklch(0.93 0.01 274)}
+.plans li::before{content:counter(pl);font-family:var(--serif);font-size:1.35rem;line-height:1.1;color:var(--accent-lt)}
+.plans-note{font-size:.84rem;line-height:1.65;color:oklch(0.88 0.01 274);margin-top:14px;max-width:none}
+.liq{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin-top:18px;border-top:1px solid var(--line-d)}
+.liq>div{padding:14px 12px 0 0}
+.liq>div+div{padding-left:14px;border-left:1px solid var(--line-d)}
+.liq dt{font-family:var(--mono);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:oklch(0.82 0.015 274)}
+.liq dd{font-family:var(--serif);font-size:1.2rem;color:#fff;margin-top:3px;line-height:1.2}
+
+/* ---------- part IV ---------- */
+.ctl{margin:6px 0 22px;padding:18px 20px;background:var(--card);border:1px solid var(--line)}
+.ctl-row{display:grid;grid-template-columns:100px minmax(0,1fr) 60px;gap:12px;align-items:center;margin-bottom:10px}
+.ctl-k{font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--text-mid)}
+.ctl-track{height:26px;background:var(--tint-2)}
+.ctl-seg{display:block;height:100%;width:var(--w);background:var(--ink)}
+.ctl-votes{background:var(--accent)}
+.ctl-v{font-family:var(--serif);font-size:1.45rem;text-align:right;color:var(--ink);line-height:1}
+.ctl figcaption{font-size:.8rem;color:var(--text-mid);line-height:1.55;margin-top:12px}
+.tl{list-style:none;border-top:1px solid var(--ink);margin-top:8px}
+.tl-i{display:grid;grid-template-columns:150px minmax(0,1fr);gap:24px;padding:18px 0;border-bottom:1px solid var(--line)}
+.tl-d{font-family:var(--mono);font-size:.78rem;color:var(--ink);padding-top:5px;white-space:nowrap}
+.tl-h{font-size:1.15rem;line-height:1.25;color:var(--ink);margin-bottom:4px}
+.tl-t p{font-size:.9rem;max-width:72ch}
+.tl-t .tl-s{font-size:.78rem;margin-top:6px}
+.tl-i:nth-last-child(-n+2) .tl-h{color:var(--accent-ink)}
+.tl-note{margin-top:20px;padding:16px 22px;background:var(--tint);border:1px solid var(--line);font-size:.88rem;line-height:1.65;max-width:none}
+
+/* ---------- part V ---------- */
+.board{list-style:none;border-top:1px solid var(--ink)}
+.bd{display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}
+.bd-n{font-family:var(--serif);font-size:1.5rem;color:var(--text-mid);line-height:1}
+.bd-t b{display:block;color:var(--ink);font-size:1rem;font-weight:600}
+.bd-r{display:block;font-size:.82rem;color:var(--text-mid);line-height:1.4}
+.bd-a{font-family:var(--mono);font-size:.68rem;color:var(--text-mid);white-space:nowrap}
+
+/* ---------- disclosures and contact ---------- */
+.notes{list-style:none;counter-reset:n;margin-top:4px}
+.notes li{counter-increment:n;position:relative;padding:16px 0 16px 50px;border-top:1px solid var(--line-d);font-size:.9rem;line-height:1.65;max-width:84ch;color:oklch(0.91 0.01 274)}
+.notes li::before{content:counter(n,decimal-leading-zero);position:absolute;left:0;top:17px;font-family:var(--mono);font-size:.76rem;color:var(--accent-lt)}
+.notes b{color:#fff}
+.notes a{color:var(--accent-lt)}
+.contact{margin-top:48px}
+.contact-list{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 40px}
+.contact-list li{display:grid;grid-template-columns:140px minmax(0,1fr);gap:12px;padding:12px 0;border-top:1px solid var(--line-d);font-size:.9rem;line-height:1.5}
+.contact-list span{font-family:var(--mono);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:oklch(0.82 0.015 274);padding-top:4px}
+.contact-list a{color:#fff;text-decoration:underline;text-underline-offset:3px;word-break:break-word}
+.contact-list b{font-weight:500;color:oklch(0.93 0.01 274)}
+
+/* ---------- footer ---------- */
+.footer-top{display:flex;justify-content:space-between;align-items:center;gap:22px;flex-wrap:wrap;padding-bottom:26px;border-bottom:1px solid var(--line-d)}
+.logo-chip{display:inline-block;background:#fff;border-radius:6px;padding:8px 12px}
+.logo-chip img{width:124px;height:auto}
+.footer-links{list-style:none;display:flex;flex-wrap:wrap;gap:8px 24px}
+.footer-links a{color:oklch(0.92 0.01 274);text-decoration:underline;text-underline-offset:3px;font-size:.86rem}
+
+/* ---------- responsive ---------- */
+@media (max-width:1020px){
+  .hero-in{grid-template-columns:minmax(0,1fr);grid-template-areas:"main" "side" "motif" "asof"}
+  .hero-main h1{max-width:16ch}
+  .hero-motif{justify-self:start;max-width:320px}
+}
+@media (max-width:900px){
+  .onfile{grid-template-columns:minmax(0,1fr)}
+  .onfile>div,.onfile>div+div{padding:14px 0;border-left:0;border-top:1px solid var(--line)}
+  .onfile>div:first-child{border-top:0}
+  .contact-list{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:700px){
+  .mb-key{grid-template-columns:minmax(0,1fr)}
+  .pf{grid-template-columns:48px minmax(0,1fr);gap:14px}
+  .pf-mark{width:48px;height:48px}
+  .terms>div{grid-template-columns:minmax(0,1fr);gap:2px}
+  .tl-i{grid-template-columns:minmax(0,1fr);gap:4px}
+  .tl-d{padding-top:0}
+  .ov{padding:20px 14px 18px}
+  .ov-row{grid-template-columns:minmax(0,1fr) auto;gap:6px 12px}
+  .ov-row .ov-track{grid-column:1 / -1;grid-row:2}
+  .ov-row .ov-tot{grid-column:2;grid-row:1}
+  .ov-seg b{display:none}
+  .ov-legend{margin-left:0}
+  .ctl-row{grid-template-columns:minmax(0,1fr) auto;gap:6px 12px}
+  .ctl-row .ctl-track{grid-column:1 / -1;grid-row:2}
+  .rb-row{grid-template-columns:56px minmax(0,1fr) 72px;gap:10px}
+  .liq{grid-template-columns:minmax(0,1fr)}
+  .liq>div,.liq>div+div{padding:12px 0;border-left:0;border-top:1px solid var(--line-d)}
+  .contact-list li{grid-template-columns:minmax(0,1fr);gap:2px}
+  .bd{grid-template-columns:34px minmax(0,1fr);}
+  .bd-a{grid-column:2}
+  .hs-v{font-size:clamp(3.2rem,17vw,4.6rem)}
+}
+@media (prefers-reduced-motion:reduce){
+  .js .mixbar .mb-seg,.js .revbars .rb-seg,.js .ctl .ctl-seg,.js .ov .ov-seg{transform:none;transition:none}
+}
+.ov-legend b{color:#fff;font-variant-numeric:tabular-nums}
+
+/* rail links wrap inside the 168px rail; part IV holders list */
+.part-rail .src-l{white-space:normal}
+.holders-cap{font-family:var(--mono);font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;color:var(--text-mid);margin:0 0 8px;max-width:none}
+.holders{list-style:none;border-top:1px solid var(--ink)}
+.holders li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:3px 16px;padding:12px 0 13px;border-bottom:1px solid var(--line)}
+.h-n{grid-column:1 / -1;max-width:none;color:var(--ink);font-size:.92rem}
+.h-n b{font-weight:600}
+.h-c{font-size:.8rem;color:var(--text-mid);font-variant-numeric:tabular-nums;max-width:none;align-self:center}
+.h-p{display:flex;gap:18px;font-size:.74rem;color:var(--text-mid);max-width:none;align-items:baseline}
+.h-p b{font-family:var(--serif);font-size:1.2rem;font-weight:500;color:var(--ink);margin-right:3px}
+
+/* mobile: statements restack into row cards, the ledger into three-line entries */
+@media (max-width:700px){
+  table.fin caption{padding:10px 12px}
+  .table-scroll table.fin.st{min-width:0;display:block}
+  table.fin.st thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  table.fin.st caption{display:block;text-align:left}
+  table.fin.st tbody{display:block}
+  table.fin.st tbody tr{display:grid;grid-template-columns:repeat(var(--n,3),minmax(0,1fr));gap:3px 10px;padding:11px 14px;border-bottom:1px solid var(--line)}
+  table.fin.st tbody tr:last-child{border-bottom:0}
+  table.fin.st tbody th{grid-column:1 / -1;padding:0;border:0;font-size:.84rem}
+  table.fin.st tbody td{display:block;padding:0;border:0;text-align:left;font-size:.84rem}
+  table.fin.st tbody td::before{content:attr(data-l);display:block;font-family:var(--mono);font-weight:400;font-size:.56rem;letter-spacing:.06em;text-transform:uppercase;color:var(--text-mid)}
+  table.fin.st tr.tot{background:var(--tint)}
+  table.fin.st tr.tot th,table.fin.st tr.tot td{border-top:0}
+  .table-scroll table.fin.led{min-width:0;display:block}
+  table.fin.led thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  table.fin.led caption{display:block}
+  table.fin.led tbody{display:block}
+  table.fin.led tbody tr{display:grid;grid-template-columns:auto minmax(0,1fr);gap:3px 12px;padding:12px 14px;border-bottom:1px solid var(--line)}
+  table.fin.led td{padding:0;border:0;display:block;min-width:0}
+  table.fin.led td.lg-d{grid-column:1}
+  table.fin.led td.lg-f{grid-column:2}
+  table.fin.led td:nth-child(3){grid-column:1 / -1;font-size:.88rem}
+  table.fin.led td.lg-a{grid-column:1 / -1}
+}
+
+/* ============================================================================================================
+   DESIGN PASS (four-lane panel, synthesised). D rhythm is the base: uneven padding, the Part III plate that hangs
+   into the margin, Part IV as the document beside its history. C instrument: graduations, calipers, registration
+   marks, and the ghost that draws the Dec 31 length behind each Jun 30 bar. A type: lighter display, platform
+   specimen plates. B: one red rule, on Part III only. Structural rules are gated by width so the <=700px restacks win.
+   ============================================================================================================ */
+
+/* ---------- type ladder ---------- */
+h1{font-weight:400;letter-spacing:-.028em}
+.sec-head h2{font-weight:400;font-size:clamp(2.1rem,4.4vw,3.6rem);letter-spacing:-.026em;line-height:1.04;max-width:26ch;text-wrap:balance}
+.sec-head p{font-family:var(--serif);font-size:clamp(1.1rem,1.5vw,1.28rem);line-height:1.55;max-width:60ch}
+#disclosures .sec-head h2{font-size:clamp(1.8rem,3.3vw,2.7rem);font-weight:500;letter-spacing:-.012em}
+#disclosures .sec-head p{font-family:var(--sans);font-size:1.02rem}
+.sub{font-size:clamp(1.4rem,2vw,1.7rem);line-height:1.12;letter-spacing:-.012em;border-top:1px solid var(--ink);border-bottom:0;padding:12px 0 0;margin:54px 0 18px}
+.sec-dark .sub{border-top-color:var(--accent-lt);border-bottom:0}
+.claims .sub{border-top:0;padding-top:0}
+@media (min-width:1100px){
+  .part-no{font-size:.78rem}
+  .part-name{font-size:1.95rem;line-height:1.04;margin:10px 0 12px;overflow-wrap:anywhere}
+}
+
+/* ---------- hero: more volume ---------- */
+.rf-h{margin-bottom:14px}
+.readfirst{box-shadow:8px 8px 0 var(--ink)}
+.rf-list li:first-child{margin:0 -24px;padding:16px 24px 22px;background:var(--tint)}
+.rf-list li:first-child::before{position:static;display:block;margin-bottom:4px;font-size:2.4rem}
+.rf-list li:first-child p{font-family:var(--serif);font-size:1.16rem;line-height:1.42;color:var(--ink)}
+@media (min-width:701px){
+  .hero-main h1{font-size:clamp(2.4rem,5.5vw,4.5rem)}
+  .hs-v{font-size:clamp(4.2rem,10.8vw,9.4rem)}
+  .hero-stat{border-top-width:2px;padding-top:24px}
+  .hero-stat::before{top:-2px;width:88px;height:6px}
+}
+@media (min-width:1021px){
+  .hero{padding-top:clamp(52px,7vw,104px)}
+  .hero-in{grid-template-columns:minmax(0,1.28fr) minmax(0,.84fr)}
+}
+
+/* ---------- uneven padding per Part ---------- */
+@media screen{
+  #business{padding-block:clamp(44px,5.5vw,80px) clamp(64px,8vw,116px)}
+  #results{padding-block:clamp(60px,8vw,112px) clamp(52px,6vw,88px)}
+  #obligations{padding-block:clamp(72px,11vw,164px) clamp(76px,12vw,180px);border-top:6px solid var(--accent)}
+  #proposal{padding-block:clamp(72px,9vw,132px) clamp(48px,6vw,84px)}
+  #governance{padding-block:clamp(40px,5vw,64px) clamp(48px,5vw,72px)}
+  #record{padding-block:clamp(44px,5.5vw,76px) clamp(44px,5vw,64px)}
+}
+@media (min-width:1100px){
+  #obligations .sec-head h2{font-size:clamp(2.4rem,4.6vw,3.9rem);max-width:22ch}
+  #governance .sec-head h2,#record .sec-head h2{font-size:clamp(1.55rem,2.5vw,2rem)}
+  #record .sec-head{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);column-gap:40px;align-items:end}
+  #record .sec-head h2,#record .sec-head p{margin:0}
+}
+@media (min-width:701px){
+  #record table.fin.led{font-size:.8rem}
+  #record table.fin.led th,#record table.fin.led td{padding:6px 14px}
+  #record table.fin.led thead th{padding:9px 14px}
+}
+
+/* ---------- part I: specimen plates and the pull figure ---------- */
+.mb-key .k-b2b b{font-size:clamp(3.4rem,7.4vw,6.2rem);font-weight:700;line-height:.84;letter-spacing:-.04em;margin-bottom:12px}
+.mb-key .k-b2b::before{width:64px;height:6px}
+@media (min-width:701px){.mb-key{grid-template-columns:minmax(0,2fr) minmax(0,1fr) minmax(0,1fr);gap:18px 28px;align-items:end}}
+.pf{padding:30px 0}
+.pf-h .zh{display:block;font-size:clamp(3.2rem,6vw,5.2rem);line-height:.98;letter-spacing:0;color:var(--ink)}
+.pf-h .zh::first-letter{color:var(--accent-ink)}
+.pf-h small{margin-top:12px}
+@media (min-width:861px){
+  .pf{grid-template-columns:64px minmax(0,15.5rem) minmax(0,1fr);column-gap:28px;align-items:start}
+  .pf-t{display:contents}
+  .pf-h{grid-column:2;grid-row:1;margin:0}
+  .pf p{grid-column:3;grid-row:1;padding-top:.6rem}
+}
+
+/* ---------- instrument: graduations and calipers on every track ---------- */
+:root{--lean:-14deg}
+.mixbar{--nt:var(--paper)}
+.revbars,.ctl{--nt:var(--card)}
+.ov{--nt:oklch(0.268 0.056 274);position:relative}
+.mb-track,.rb-track,.ctl-track,.ov-track{position:relative}
+.mb-track::after,.rb-track::after,.ctl-track::after,.ov-track::after{content:'';position:absolute;inset:0;z-index:2;pointer-events:none;
+  background:linear-gradient(var(--nt),var(--nt)) 50% 0/1px 10px no-repeat,
+    linear-gradient(var(--nt),var(--nt)) 50% 100%/1px 10px no-repeat,
+    repeating-linear-gradient(90deg,var(--nt) 0 1px,transparent 1px 10%) 0 0/100% 5px no-repeat,
+    repeating-linear-gradient(90deg,var(--nt) 0 1px,transparent 1px 10%) 0 100%/100% 5px no-repeat}
+.rb-seg,.ctl-seg,.ov-seg{position:relative}
+.ov-seg.h,.ov-seg.s0{overflow:visible}
+.rb-seg::after,.ctl-seg::after,.ov-seg.h::after,.ov-seg.s0::after{content:'';position:absolute;right:-1px;top:-6px;bottom:-6px;width:2px;background:var(--ink);transform:skewX(var(--lean));z-index:3}
+.ov-seg.h::after,.ov-seg.s0::after{background:oklch(0.98 0.009 274)}
+.ctl-track::before{content:'';position:absolute;left:50%;top:-5px;bottom:-5px;width:1px;z-index:3;background:oklch(0.26 0.032 274 / .55)}
+.mb-key{margin-top:20px}
+
+/* ---------- part III: the plate, the ghosts, registration marks ---------- */
+.ov::before{content:'';position:absolute;inset:7px;pointer-events:none;--c:var(--accent-lt);
+  background:linear-gradient(var(--c),var(--c)) 0 0/14px 1px no-repeat,linear-gradient(var(--c),var(--c)) 0 0/1px 14px no-repeat,
+    linear-gradient(var(--c),var(--c)) 100% 0/14px 1px no-repeat,linear-gradient(var(--c),var(--c)) 100% 0/1px 14px no-repeat,
+    linear-gradient(var(--c),var(--c)) 0 100%/14px 1px no-repeat,linear-gradient(var(--c),var(--c)) 0 100%/1px 14px no-repeat,
+    linear-gradient(var(--c),var(--c)) 100% 100%/14px 1px no-repeat,linear-gradient(var(--c),var(--c)) 100% 100%/1px 14px no-repeat}
+.motif-gh{position:absolute;left:0;top:0;bottom:0;width:var(--w);box-sizing:border-box;transform-origin:left center;
+  border:1px solid oklch(0.98 0.009 274 / .5);border-left:0;
+  background:repeating-linear-gradient(104deg,oklch(0.98 0.009 274 / .26) 0 1px,transparent 1px 7px)}
+.ov-legend-gh{margin-top:8px}
+.ov-legend .gh i{box-shadow:inset 0 0 0 1px oklch(0.98 0.009 274 / .6);background:repeating-linear-gradient(104deg,oklch(0.98 0.009 274 / .4) 0 1px,transparent 1px 4px)}
+#obligations .plans-note{font-family:var(--serif);font-size:1.08rem;line-height:1.58;color:oklch(0.95 0.008 274);margin-top:26px;padding-top:18px;border-top:2px solid var(--accent-lt)}
+@media (min-width:900px){
+  #obligations .ov-caveat p{columns:2;column-gap:48px;column-rule:1px solid var(--line-d);border:0;border-top:1px solid var(--line-d);padding:22px 0 0;font-size:.9rem;line-height:1.65}
+}
+@media (min-width:701px){
+  .ov-row{margin-bottom:14px}
+  .ov-track{height:50px}
+  .ov-tot{font-size:1.65rem}
+}
+@media (min-width:1100px){
+  #obligations .ov{z-index:2;margin:48px 0 34px -216px;padding:40px 36px 32px 28px;border:1px solid var(--line-d);
+    background-color:oklch(0.268 0.056 274);
+    background-image:linear-gradient(oklch(0.98 0.009 274 / .10),oklch(0.98 0.009 274 / .10));
+    background-size:1px 100%;background-position:191px 0;background-repeat:no-repeat}
+  #obligations .ov-cap{padding-left:188px}
+  #obligations .ov-date{display:grid;grid-template-columns:140px minmax(0,1fr);column-gap:48px;margin-top:30px}
+  #obligations .ov-date+.ov-date{margin-top:34px;padding-top:30px;border-top:1px solid var(--line-d)}
+  #obligations .ov-d{grid-column:1;grid-row:1 / span 4;align-self:start;margin:0;font-size:1.45rem;line-height:1.1}
+  #obligations .ov-d span{display:block;margin:6px 0 0}
+  #obligations .ov-date>:not(.ov-d){grid-column:2}
+  #obligations .ov-row{grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:8px 24px;margin-bottom:22px}
+  #obligations .ov-row .ov-k{grid-column:1;grid-row:1;font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase}
+  #obligations .ov-row .ov-tot{grid-column:2;grid-row:1;font-size:clamp(2.2rem,3.5vw,3.1rem);line-height:.9}
+  #obligations .ov-row .ov-track{grid-column:1 / -1;grid-row:2;height:60px}
+  #obligations .ov-seg b{font-size:1.02rem}
+  #obligations .ov-legend{margin-left:0;font-size:.82rem}
+  #obligations .ov-read{margin-top:30px;padding-left:188px;font-size:1.05rem}
+  #obligations .ov-read b{font-family:var(--serif);font-size:1.7rem;font-weight:500;line-height:1}
+  #obligations .ov-caveat+.two-up{margin-top:72px}
+}
+
+/* ---------- part IV: the document beside its history ---------- */
+.tl{border-top:0;border-left:1px solid var(--ink);padding-left:30px;margin-top:12px}
+.tl-i{position:relative;grid-template-columns:minmax(0,1fr);gap:3px;padding:0 0 26px;border-bottom:0}
+.tl-i:last-child{padding-bottom:0}
+.tl-d{padding-top:0}
+.tl-i::before{content:'';position:absolute;left:-35px;top:3px;width:9px;height:17px;background:var(--ink);clip-path:var(--slab)}
+.tl-i:nth-last-child(-n+2)::before{background:var(--accent)}
+.tl-t p{max-width:none}
+@media (min-width:900px){
+  .prop-top{align-items:start}
+  .tl-note{columns:2;column-gap:48px;column-rule:1px solid var(--line)}
+  #proposal .two-up-w>div:first-child{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--ink);padding:26px 28px 16px}
+  #proposal .two-up-w>div:first-child .sub{border-top:0;padding-top:0;margin-top:0}
+  #proposal .terms>div{grid-template-columns:minmax(0,1fr);gap:3px;padding:14px 0}
+  #proposal .terms dt{padding-top:0}
+  #proposal .terms>div:nth-child(2) dd{font-family:var(--serif);font-size:1.2rem;line-height:1.4}
+  #proposal .terms>div:nth-child(2) dd b{font-size:1.55rem;line-height:1.2;color:var(--ink)}
+}
+.two-up-c{margin-top:6px}
+.ctl{padding:26px 28px 22px}
+.ctl-row{grid-template-columns:130px minmax(0,1fr) 110px;gap:20px;margin-bottom:14px}
+.ctl-track{height:40px}
+.ctl-v{font-size:2.4rem}
+@media (max-width:700px){
+  .ctl{padding:18px 14px}
+  .ctl-row{grid-template-columns:minmax(0,1fr) auto;gap:6px 12px}
+  .ctl-v{font-size:1.8rem}
+}
+
+/* ---------- motion: bars and ghosts land in order (one-shot, final state is the base state) ---------- */
+@media (prefers-reduced-motion:no-preference){
+  .js .mixbar.in .mb-b2b{transition-duration:1.2s}
+  .js .mixbar.in .mb-b2c{transition-duration:.4s;transition-delay:1.2s}
+  .js .mixbar.in .mb-svc{transition-duration:.3s;transition-delay:1.45s}
+  .js .revbars.in .rb-row:nth-child(3) .rb-seg{transition-delay:.34s}
+  .js .revbars.in .rb-group+.rb-group .rb-row:nth-child(2) .rb-seg{transition-delay:.8s}
+  .js .revbars.in .rb-group+.rb-group .rb-row:nth-child(3) .rb-seg{transition-delay:.94s}
+  .js .ctl.in .ctl-row+.ctl-row .ctl-seg{transition-delay:.55s;transition-duration:1.3s}
+  .js .ov.in .ov-seg{transition-duration:.9s;transition-delay:.2s}
+  .js .ov.in .s1{transition-delay:.15s} .js .ov.in .s2{transition-delay:.5s} .js .ov.in .s3{transition-delay:1.1s}
+  .js .ov .motif-gh{transform:scaleX(0);transform-origin:left center}
+  .js .ov.in .motif-gh{transform:none;transition:transform .8s var(--ease) 1.5s}
+}
+@media (hover:hover){
+  .rb-row:hover .rb-k,.rb-row:hover .rb-v,.ctl-row:hover .ctl-k{color:var(--accent-ink)}
+}
+@media print{.ov::before{display:none}.motif-gh{border-color:#999;background:none}}
+
+/* ---------- responsive-pass fixes (2026-10-10) ---------- */
+/* desktop: the proposal card and the timeline sit level, and the ADS-ratio note is the full-width row under both (it is the grid's third child, so the mobile reading order stays card, timeline, note); the short share/votes card follows the reader down the ledger */
+@media (min-width:900px){
+  .prop-top>.tl-note{grid-column:1 / -1;margin-top:0}
+  .two-up-c>:first-child{align-self:start;position:sticky;top:96px}
+}
+/* mobile: the ownership ledger becomes three-line entries, and the smallest captions get a floor */
+@media (max-width:700px){
+  .holders li{grid-template-columns:minmax(0,1fr);gap:4px}
+  .holders .h-p{flex-wrap:wrap;gap:4px 18px}
+  table.fin.st tbody td::before{font-size:.68rem}
+  .terms dt,.ctl-k,.holders-cap,.liq dt,.contact-list span,.onfile dt{font-size:.7rem}
+}
+/* the filed-record disclosure reads as expandable: summary lost its marker when it became a flex row */
+details.older summary{gap:10px}
+details.older summary::-webkit-details-marker{display:none}
+details.older summary::after{content:'+';content:'+' / '';font-size:1.1rem;line-height:1}
+details.older[open] summary::after{content:'\2212';content:'\2212' / ''}
+
+/* the Feb 2026 repayment note sits under the legend, aligned with it (the legend row is flex, so loose text inside an item splits) */
+.ov-legend-note{margin:10px 0 0;max-width:62ch;font-size:.78rem;line-height:1.55;color:oklch(0.88 0.01 274)}
+/* mc:surface */
+/* 111 surface system. Derived from the page's own structure: a prospectus prints a column rule at the margin gutter and trims at the sheet edge,
+   so the stocks carry those, never ruling behind running text or tables (tables sit on opaque card stock). Polarity flip (ir-build 5a):
+   printed dark rules on white stock, BLIND WHITE rules on the tinted stock, negative (white, very low alpha) rules on the dark stocks.
+   The gutter rule sits at the rail boundary (wrap left edge + 168px rail + 24px) and only where the rail is a column (>= 1160px).
+   Slots (--sheet-edge, --blind, --blind-k, --sheet-neg) come from tokens.css. The opaque head wash on white goes LAST so it cannot hide the trims. */
+:root{--hair:oklch(0.26 0.032 274 / 0.07);--trim:oklch(0.40 0.06 274 / 0.17);--gutter-x:50%}
+
+/* white stock (hero, business, proposal, record) */
+.sec-white{
+  background-color:var(--paper);
+  background-image:
+    linear-gradient(var(--trim),var(--trim)),
+    linear-gradient(var(--trim),var(--trim)),
+    linear-gradient(var(--hair),var(--hair)),
+    linear-gradient(to bottom,var(--tint) 0,var(--paper) 230px);
+  background-size:1px 100%,1px 100%,0 0,100% 100%;
+  background-position:11px 0,calc(100% - 11px) 0,0 0,0 0;
+  background-repeat:no-repeat;
+}
+@media (min-width:1160px){
+  .sec-white.part{background-size:1px 100%,1px 100%,1px calc(100% - 96px),100% 100%;background-position:11px 0,calc(100% - 11px) 0,calc(50% - 570px + 192px) 48px,0 0}
+}
+
+/* the hero: one soft red lift behind the motif, kept clear of the Read-first card, then the white stock */
+#hero.sec-white{
+  background-image:
+    radial-gradient(34% 46% at 84% 78%,var(--accent-lo),transparent 72%),
+    linear-gradient(var(--trim),var(--trim)),
+    linear-gradient(var(--trim),var(--trim)),
+    linear-gradient(to bottom,var(--tint) 0,var(--paper) 260px);
+  background-size:100% 100%,1px 100%,1px 100%,100% 100%;
+  background-position:0 0,11px 0,calc(100% - 11px) 0,0 0;
+}
+
+/* tinted stock (results, governance): blind white rule and white trims; white on a tint raises contrast (palette.mjs --check) */
+.sec-tint{
+  background-color:var(--tint);
+  background-image:
+    linear-gradient(var(--blind-k),var(--blind-k)),
+    linear-gradient(var(--blind-k),var(--blind-k)),
+    linear-gradient(var(--blind-k),var(--blind-k)),
+    radial-gradient(70% 34% at 50% 0,oklch(0.995 0.004 274 / .75),transparent 72%);
+  background-size:1px 100%,1px 100%,0 0,100% 100%;
+  background-position:11px 0,calc(100% - 11px) 0,0 0,0 0;
+  background-repeat:no-repeat;
+}
+@media (min-width:1160px){
+  .sec-tint.part{background-size:1px 100%,1px 100%,2px calc(100% - 96px),100% 100%;background-position:11px 0,calc(100% - 11px) 0,calc(50% - 570px + 191px) 48px,0 0}
+}
+
+/* dark stock (obligations): negative rule and trims under a lifted head */
+.sec-dark{
+  background-color:var(--deep);
+  background-image:
+    linear-gradient(var(--sheet-neg),var(--sheet-neg)),
+    linear-gradient(var(--sheet-neg),var(--sheet-neg)),
+    linear-gradient(var(--sheet-neg),var(--sheet-neg)),
+    linear-gradient(to bottom,oklch(0.29 0.07 274) 0,var(--deep) 380px);
+  background-size:1px 100%,1px 100%,0 0,100% 100%;
+  background-position:11px 0,calc(100% - 11px) 0,0 0,0 0;
+  background-repeat:no-repeat;
+}
+@media (min-width:1160px){
+  .sec-dark.part{background-size:1px 100%,1px 100%,1px calc(100% - 96px),100% 100%;background-position:11px 0,calc(100% - 11px) 0,calc(50% - 570px + 192px) 48px,0 0}
+}
+
+/* the gravest band (disclosures): its own darkest stock, margin trims only, no rule, no chroma lift, no glow */
+#disclosures.sec-dark{
+  background-color:var(--deep-2);
+  background-image:
+    linear-gradient(var(--sheet-neg),var(--sheet-neg)),
+    linear-gradient(var(--sheet-neg),var(--sheet-neg)),
+    linear-gradient(to bottom,oklch(0.13 0.035 274) 0,transparent 220px);
+  background-size:1px 100%,1px 100%,100% 100%;
+  background-position:11px 0,calc(100% - 11px) 0,0 0;
+}
+@media (min-width:1160px){
+  #disclosures.sec-dark.part{background-size:1px 100%,1px 100%,100% 100%;background-position:11px 0,calc(100% - 11px) 0,0 0}
+}
+
+footer{
+  background-color:var(--deep-2);
+  background-image:
+    linear-gradient(var(--sheet-neg),var(--sheet-neg)),
+    linear-gradient(var(--sheet-neg),var(--sheet-neg)),
+    linear-gradient(to bottom,var(--deep) 0,var(--deep-2) 180px);
+  background-size:1px 100%,1px 100%,100% 100%;
+  background-position:11px 0,calc(100% - 11px) 0,0 0;
+  background-repeat:no-repeat;
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="concept-note">Independent design concept. Not affiliated with 111, Inc. Official investor relations: <a href="https://ir.111.com.cn/" target="_blank" rel="noopener">ir.111.com.cn</a></div>
+
+<header class="site-nav">
+  <div class="wrap nav-inner">
+    <a class="nav-brand" href="#hero"><span class="nav-logo"><img src="img/oneoneone-logo.png" alt="111, Inc. (1药网)" width="206" height="92"></span><span class="nav-tick">Nasdaq: YI</span></a>
+    <nav aria-label="Primary">
+      <button class="nav-burger" id="nav-burger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#business">Business</a></li>
+        <li><a href="#results">Results</a></li>
+        <li><a href="#obligations">Obligations</a></li>
+        <li><a href="#proposal">Proposal</a></li>
+        <li><a href="#governance">Governance</a></li>
+        <li><a href="#record">Record</a></li>
+        <li><a href="#disclosures">Disclosures</a></li>
+        <li><a class="btn btn-primary" href="#contact">Contact IR <span class="arw" aria-hidden="true">-&gt;</span></a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+
+<svg class="mk-defs" width="0" height="0" aria-hidden="true" focusable="false"><defs><path id="slab" d="M44 0 L6 27 L19 28 L19 30 L1 91 L28 91 L34 86 L36 80 L37 69 L49 7 L48 0 Z"/></defs></svg>
+<!-- ============ 00 HERO: split-stat, the pharmacy count, with the three things to read first ============ -->
+<section id="hero" class="hero sec-white" aria-labelledby="hero-h">
+  <div class="wrap hero-in">
+    <div class="hero-main">
+      <p class="eyebrow reveal">111, Inc. &middot; Nasdaq: YI &middot; Shanghai</p>
+      <h1 id="hero-h" class="reveal" style="--d:.06s">Supplying China&rsquo;s pharmacies online, <em>mid-transition</em></h1>
+      <p class="lead hero-lede reveal" style="--d:.14s">111, Inc. sells medicines and health products to pharmacies through its online wholesale platform <span class="zh" lang="zh-Hans">1药城</span> and to shoppers through <span class="zh" lang="zh-Hans">1药网</span>. Sales to pharmacies were 97.5% of FY2025 revenue. This page reads the FY2025 annual report and the 2026 filings: what it sells, what it earned, what it owes its investors, and the proposal now before its board.</p>
+      <div class="hero-stat reveal scale-up" style="--d:.2s">
+        <p class="hs-v"><span data-count="500000" data-decimals="0">500,000</span><span class="hs-plus">+</span></p>
+        <div class="hs-t">
+          <p class="hs-l">pharmacies served since the May 2017 launch of the wholesale platform, across 31 provinces, as of Dec 31, 2025</p>
+          <p class="hs-n">The 20-F says &ldquo;more than 500,000&rdquo; and adds that it sources directly from more than 490 pharmaceutical companies. These are the company&rsquo;s own counts, not audited. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000110465926052002/yi-20251231x20f.htm" target="_blank" rel="noopener">20-F, Apr 30, 2026</a></p>
+        </div>
+      </div>
+      <div class="hero-cta reveal" style="--d:.26s">
+        <a class="btn btn-primary" href="#obligations">Read the obligations <span class="arw" aria-hidden="true">-&gt;</span></a>
+        <a class="btn btn-ghost" href="#proposal">The proposal</a>
+      </div>
+    </div>
+    <aside class="readfirst reveal from-right" style="--d:.18s" aria-labelledby="rf-h">
+      <h2 id="rf-h" class="rf-h">Read first</h2>
+      <ol class="rf-list">
+        <li>
+          <span class="rf-k">Going concern</span>
+          <p>The auditor&rsquo;s report on the FY2025 accounts says that recurring losses and the investors&rsquo; redemption rights, with other matters in Note 2, &ldquo;raises substantial doubt about the Company&rsquo;s ability to continue as a going concern&rdquo;. <a href="#obligations">Part III</a></p>
+        </li>
+        <li>
+          <span class="rf-k">Take-private proposal</span>
+          <p>On Sep 16, 2026 the two co-founders and a sponsor proposed to buy every Class A share they do not own for US$4.52 per ADS, in cash. It is non-binding, and a special committee was formed on Sep 28. <a href="#proposal">Part IV</a></p>
+        </li>
+        <li>
+          <span class="rf-k">Shrinking sales</span>
+          <p>Net revenue fell 12.8% in FY2025 and 30.8% in the first half of 2026. The company links the falls to its move to an asset-light model and, for FY2025, to competition. <a href="#results">Part II</a></p>
+        </li>
+      </ol>
+    </aside>
+    <div class="hero-motif" id="hero-motif" aria-hidden="true"><svg class="hm" viewBox="0 0 372 224" focusable="false"><use class="hm-slab hm-r" href="#slab" transform="translate(6 6) scale(2.30)"/><use class="hm-slab motif-slab" href="#slab" transform="translate(130 6) scale(2.30)"/><use class="hm-slab motif-slab" href="#slab" transform="translate(254 6) scale(2.30)"/><g class="motif-cap" style="--i:0;--j:0;--x:72.7px;--y:98.0px"><rect class="cap-a" x="-3.75" y="-7.5" width="7.5" height="15" rx="3.75"/><rect class="cap-b" x="-3.75" y="-7.5" width="7.5" height="7.5" rx="3.75"/></g><g class="motif-cap" style="--i:0;--j:1;--x:72.7px;--y:98.0px"><rect class="cap-a" x="-3.75" y="-7.5" width="7.5" height="15" rx="3.75"/><rect class="cap-b" x="-3.75" y="-7.5" width="7.5" height="7.5" rx="3.75"/></g><g class="motif-cap" style="--i:1;--j:0;--x:196.7px;--y:98.0px"><rect class="cap-a" x="-3.75" y="-7.5" width="7.5" height="15" rx="3.75"/><rect class="cap-b" x="-3.75" y="-7.5" width="7.5" height="7.5" rx="3.75"/></g><g class="motif-cap" style="--i:1;--j:1;--x:196.7px;--y:98.0px"><rect class="cap-a" x="-3.75" y="-7.5" width="7.5" height="15" rx="3.75"/><rect class="cap-b" x="-3.75" y="-7.5" width="7.5" height="7.5" rx="3.75"/></g><g class="motif-cap" style="--i:2;--j:0;--x:320.7px;--y:98.0px"><rect class="cap-a" x="-3.75" y="-7.5" width="7.5" height="15" rx="3.75"/><rect class="cap-b" x="-3.75" y="-7.5" width="7.5" height="7.5" rx="3.75"/></g><g class="motif-cap" style="--i:2;--j:1;--x:320.7px;--y:98.0px"><rect class="cap-a" x="-3.75" y="-7.5" width="7.5" height="15" rx="3.75"/><rect class="cap-b" x="-3.75" y="-7.5" width="7.5" height="7.5" rx="3.75"/></g></svg></div>
+    <p class="hero-asof reveal" style="--d:.3s">Reporting currency is the renminbi (RMB). Filings reviewed through the 6-K filed Sep 28, 2026. No share price is shown. Dates are as filed.</p>
+  </div>
+</section>
+
+<!-- ============ PART I BUSINESS ============ -->
+<section id="business" class="part sec-white" aria-labelledby="biz-h">
+  <div class="wrap part-grid">
+    <aside class="part-side" aria-label="Part I">
+      <div class="part-rail">
+        <p class="part-no">Part I</p>
+        <p class="part-name">Business</p>
+        <p class="part-asof">As of Dec 31, 2025, unless a date is given</p>
+        <p class="part-src"><a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000110465926052002/yi-20251231x20f.htm" target="_blank" rel="noopener">20-F, Apr 30, 2026</a><br><a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000095010326014069/dp253438_6k.htm" target="_blank" rel="noopener">Q2 2026 results 6-K, Sep 17, 2026</a></p>
+      </div>
+    </aside>
+    <div class="part-body">
+      <div class="sec-head reveal">
+        <h2 id="biz-h">Mostly a wholesaler to pharmacies</h2>
+        <p>111 buys medicines and health products from pharmaceutical companies and distributors and sells them on through two apps and websites. Under its direct sales model it takes the stock and is responsible for fulfilment and delivery; third-party sellers can also sell through its marketplaces. The larger platform serves pharmacies. The smaller one serves shoppers. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000110465926052002/yi-20251231x20f.htm" target="_blank" rel="noopener">20-F, Apr 30, 2026</a></p>
+      </div>
+
+      <figure class="mixbar reveal from-left" aria-label="FY2025 net revenues by line, drawn to scale">
+        <figcaption class="mb-cap">Net revenues, FY2025: <b>RMB 12,556.0 million</b> (US$1.80 billion at about RMB 6.993 per US$)</figcaption>
+        <div class="mb-track" role="img" aria-label="97.5 percent business-to-business product sales, 1.8 percent business-to-consumer product sales, 0.7 percent services">
+          <span class="mb-seg mb-b2b" style="--w:97.54%"></span><span class="mb-seg mb-b2c" style="--w:1.78%"></span><span class="mb-seg mb-svc" style="--w:0.68%"></span>
+        </div>
+        <ul class="mb-key">
+          <li class="k-b2b"><b>97.5%</b> Sales to pharmacies (B2B product)<span>RMB 12,247.4 million</span></li>
+          <li class="k-b2c"><b>1.8%</b> Sales to shoppers (B2C product)<span>RMB 223.2 million</span></li>
+          <li class="k-svc"><b>0.7%</b> Services<span>RMB 85.4 million</span></li>
+        </ul>
+        <p class="mb-note">Shares of net revenues are derived from the segment note, rounded to one decimal. The 20-F&rsquo;s pharmacy customers include certain select distributors with retail and wholesale businesses. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000110465926052002/yi-20251231x20f.htm" target="_blank" rel="noopener">20-F, Apr 30, 2026</a></p>
+      </figure>
+
+      <h3 class="sub reveal">Three platforms, three names for each</h3>
+      <ol class="platforms">
+        <li class="pf reveal">
+          <img class="pf-mark" src="img/yyc.png" alt="" width="112" height="112" loading="lazy">
+          <div class="pf-t">
+            <h3 class="pf-h"><span class="zh" lang="zh-Hans">1药城</span> <small>online wholesale pharmacy, B2B</small></h3>
+            <p>A one-stop shop for pharmacies, clinics and hospitals to source pharmaceutical products, on an app and a website. The 20-F counts more than 500,000 pharmacies served since the May 2017 launch and describes the customers as small and medium retail chains, independent pharmacies and in-house pharmacies of clinics and private hospitals. Named &ldquo;1 Pharmacy&rdquo; in the 20-F. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000110465926052002/yi-20251231x20f.htm" target="_blank" rel="noopener">20-F, Apr 30, 2026</a></p>
+          </div>
+        </li>
+        <li class="pf reveal" style="--d:.06s">
+          <img class="pf-mark" src="img/yyw.png" alt="" width="112" height="112" loading="lazy">
+          <div class="pf-t">
+            <h3 class="pf-h"><span class="zh" lang="zh-Hans">1药网</span> <small>online retail pharmacy, B2C</small></h3>
+            <p>Launched by the founders in 2010, one of the first online retail pharmacies in China, the 20-F says. It sells under a direct model and, since 2016, through a marketplace of third-party sellers that pay commissions and annual platform fees. It also runs branded storefronts on Tmall.com, JD.com and PDD.com. Named &ldquo;1 Medicine Marketplace&rdquo; in the 20-F, and &ldquo;1 Pharmacy&rdquo; in the company&rsquo;s September 2026 releases. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000110465926052002/yi-20251231x20f.htm" target="_blank" rel="noopener">20-F, Apr 30, 2026</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000095010326014068/dp253510_6k.htm" target="_blank" rel="noopener">proposal 6-K, Sep 17, 2026</a></p>
+          </div>
+        </li>
+        <li class="pf reveal" style="--d:.12s">
+          <img class="pf-mark" src="img/yz.png" alt="" width="112" height="112" loading="lazy">
+          <div class="pf-t">
+            <h3 class="pf-h"><span class="zh" lang="zh-Hans">1诊</span> <small>internet hospital</small></h3>
+            <p>The company&rsquo;s September 17, 2026 release describes it as an internet hospital offering online consultation, electronic prescriptions and patient management. The 20-F does not name it. It mentions online consultation and e-prescription services among its value-added services, and no revenue line is reported for it, so its size is not known from the filings. It is also listed as a brand on the company&rsquo;s own <a href="https://corporate.111.com.cn/" target="_blank" rel="noopener">corporate website</a>, which is in Chinese. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000095010326014068/dp253510_6k.htm" target="_blank" rel="noopener">proposal 6-K, Sep 17, 2026</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000110465926052002/yi-20251231x20f.htm" target="_blank" rel="noopener">20-F, Apr 30, 2026</a></p>
+          </div>
+        </li>
+      </ol>
+
+      <div class="two-up">
+        <div class="reveal">
+          <h3 class="sub">How the money is made</h3>
+          <ul class="plain">
+            <li><b>Direct sales.</b> It buys from pharmaceutical companies or distributors and sells to pharmacies or shoppers, carrying the inventory. In FY2025 the cost of products sold was RMB 11,832.6 million of RMB 12,556.0 million of revenue.</li>
+            <li><b>Marketplace.</b> Third-party sellers list on the platforms; 111 processes the orders and collects commissions, a share of sales that depends on category, and a fixed annual platform fee. Marketplace service revenue was RMB 56.7 million.</li>
+            <li><b>Services to drug makers.</b> Marketing, channel data and supply-chain services. Service revenue in total was RMB 85.4 million in FY2025, down 19.8% from FY2024.</li>
+          </ul>
+          <p class="src"><a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000110465926052002/yi-20251231x20f.htm" target="_blank" rel="noopener">20-F, Apr 30, 2026</a></p>
+        </div>
+        <div class="reveal" style="--d:.08s">
+          <h3 class="sub">What it sells</h3>
+          <div class="table-scroll">
+            <table class="fin mix">
+              <caption>FY2025 by group, RMB thousands</caption>
+              <thead><tr><th scope="col">Group</th><th scope="col" class="num">RMB thousands</th><th scope="col" class="num">Share</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">Drugs, prescription and over the counter</th><td class="num">11,649,921</td><td class="num">92.8%</td></tr>
+                <tr><th scope="row">Nutritional supplements</th><td class="num">434,685</td><td class="num">3.5%</td></tr>
+                <tr><th scope="row">Medical supplies and devices</th><td class="num">152,351</td><td class="num">1.2%</td></tr>
+                <tr><th scope="row">Other products</th><td class="num">233,690</td><td class="num">1.9%</td></tr>
+                <tr><th scope="row">Services</th><td class="num">85,376</td><td class="num">0.7%</td></tr>
+                <tr class="tot"><th scope="row">Net revenues</th><td class="num">12,556,023</td><td class="num">100%</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="src">Shares are derived and rounded, so they may not sum to 100. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000110465926052002/yi-20251231x20f.htm" target="_blank" rel="noopener">20-F, Apr 30, 2026</a></p>
+        </div>
+      </div>
+
+      <h3 class="sub reveal">Segment results, FY2023 to FY2025</h3>
+      <div class="table-scroll reveal">
+        <table class="fin seg st" style="--n:3">
+          <caption>Segment results, RMB thousands</caption>
+          <thead><tr><th scope="col">Line</th><th scope="col" class="num">FY2023</th><th scope="col" class="num">FY2024</th><th scope="col" class="num">FY2025</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Sales to pharmacies (B2B product)</th><td class="num" data-l="FY2023">14,483,935</td><td class="num" data-l="FY2024">14,033,543</td><td class="num" data-l="FY2025">12,247,430</td></tr>
+            <tr><th scope="row">B2B services</th><td class="num" data-l="FY2023">86,831</td><td class="num" data-l="FY2024">89,609</td><td class="num" data-l="FY2025">73,775</td></tr>
+            <tr><th scope="row">Sales to shoppers (B2C product)</th><td class="num" data-l="FY2023">357,975</td><td class="num" data-l="FY2024">261,197</td><td class="num" data-l="FY2025">223,217</td></tr>
+            <tr><th scope="row">B2C services</th><td class="num" data-l="FY2023">19,388</td><td class="num" data-l="FY2024">16,900</td><td class="num" data-l="FY2025">11,601</td></tr>
+            <tr class="tot"><th scope="row">Net revenues</th><td class="num" data-l="FY2023">14,948,129</td><td class="num" data-l="FY2024">14,401,249</td><td class="num" data-l="FY2025">12,556,023</td></tr>
+            <tr><th scope="row">B2B segment profit</th><td class="num" data-l="FY2023">769,594</td><td class="num" data-l="FY2024">765,535</td><td class="num" data-l="FY2025">679,524</td></tr>
+            <tr><th scope="row">B2C segment profit</th><td class="num" data-l="FY2023">79,384</td><td class="num" data-l="FY2024">63,694</td><td class="num" data-l="FY2025">43,882</td></tr>
+            <tr class="tot"><th scope="row">Total segment profit</th><td class="num" data-l="FY2023">848,978</td><td class="num" data-l="FY2024">829,229</td><td class="num" data-l="FY2025">723,406</td></tr>
+            <tr class="der"><th scope="row">B2B margin (derived)</th><td class="num" data-l="FY2023">5.3%</td><td class="num" data-l="FY2024">5.4%</td><td class="num" data-l="FY2025">5.5%</td></tr>
+            <tr class="der"><th scope="row">B2C margin (derived)</th><td class="num" data-l="FY2023">21.0%</td><td class="num" data-l="FY2024">22.9%</td><td class="num" data-l="FY2025">18.7%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="src reveal">Segment profit is revenue less cost of products sold, with purchase rebates allocated between the segments; fulfilment, selling, administrative and technology expenses are not allocated. The margins are derived here (the 20-F gives none): segment profit divided by the segment&rsquo;s product and service revenue. For the quarter ended June 30, 2026 the company states 5.4% for B2B and 18.6% for B2C. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000110465926052002/yi-20251231x20f.htm" target="_blank" rel="noopener">20-F, Apr 30, 2026</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000095010326014069/dp253438_6k.htm" target="_blank" rel="noopener">Q2 2026 results 6-K, Sep 17, 2026</a></p>
+
+      <h3 class="sub reveal">Why sales are falling</h3>
+      <div class="squeeze reveal">
+        <p>The 20-F gives two reasons for the 12.8% fall in FY2025 revenue: &ldquo;enhanced competition in the pharmaceutical retail and wholesale industry in China&rdquo;, and the move to an asset-light model after it sold three subsidiaries in the third quarter of 2025. Those three pharmacy companies (in Shanxi, Liaoning and Tianjin) made up about 20.0% of consolidated net revenue in 2024 and now serve 111 as fulfilment partners. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000110465926052002/yi-20251231x20f.htm" target="_blank" rel="noopener">20-F, Apr 30, 2026</a></p>
+        <p>The 20-F names traditional distributors, a couple of B2B platforms, offline pharmacies and online platforms such as Ali Health and JD.com as competitors. It also says the company believes no comparable company competes with it across the whole pharmaceutical value chain, which is its own view. No market-size figure is given in the filings, so none is shown here. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000110465926052002/yi-20251231x20f.htm" target="_blank" rel="noopener">20-F, Apr 30, 2026</a></p>
+      </div>
+
+      <dl class="onfile reveal scale-up">
+        <div><dt>Employees, Dec 31, 2025</dt><dd>1,063</dd><dd class="n">478 in wholesale and 210 in procurement</dd></div>
+        <div><dt>Technology and IT staff</dt><dd>144</dd><dd class="n">31 software copyrights, 33 granted patents, 332 trademarks</dd></div>
+        <div><dt>Customer satisfaction, 2025</dt><dd>over 98.1%</dd><dd class="n">on the retail app; about 96.2% on the wholesale app. The company&rsquo;s own metric.</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PART II RESULTS ============ -->
+<section id="results" class="part sec-tint" aria-labelledby="res-h">
+  <div class="wrap part-grid">
+    <aside class="part-side" aria-label="Part II">
+      <div class="part-rail">
+        <p class="part-no">Part II</p>
+        <p class="part-name">Results</p>
+        <p class="part-asof">Years ended Dec 31, 2023 to 2025; six months ended Jun 30, 2026</p>
+        <p class="part-src"><a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000110465926052002/yi-20251231x20f.htm" target="_blank" rel="noopener">20-F, Apr 30, 2026</a><br><a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000095010326014069/dp253438_6k.htm" target="_blank" rel="noopener">Q2 2026 results 6-K, Sep 17, 2026</a></p>
+      </div>
+    </aside>
+    <div class="part-body">
+      <div class="sec-head reveal">
+        <h2 id="res-h">Two years of falling sales, a loss in each of three</h2>
+        <p>Revenue fell 3.7% in FY2024. In FY2025 it fell 12.8%. The six months to June 30, 2026 came in 30.8% below the same six months of 2025. Operating income was RMB 2.1 million in FY2024 and a loss of RMB 2.4 million in FY2025; the net loss was RMB 22.5 million after interest expense of RMB 35.6 million.</p>
+      </div>
+
+      <figure class="revbars reveal" aria-label="Net revenues by period, drawn to scale within each group">
+        <figcaption>Net revenues (RMB millions), each group drawn to its own scale</figcaption>
+        <div class="rb-group">
+          <p class="rb-h">Full years</p>
+          <div class="rb-row"><p class="rb-k">FY2023</p><div class="rb-track"><span class="rb-seg" style="--w:100.00%"></span></div><p class="rb-v">14,948.1</p></div>
+          <div class="rb-row"><p class="rb-k">FY2024</p><div class="rb-track"><span class="rb-seg" style="--w:96.34%"></span></div><p class="rb-v">14,401.2</p></div>
+          <div class="rb-row"><p class="rb-k">FY2025</p><div class="rb-track"><span class="rb-seg" style="--w:84.00%"></span></div><p class="rb-v">12,556.0</p></div>
+        </div>
+        <div class="rb-group">
+          <p class="rb-h">Six months to Jun 30</p>
+          <div class="rb-row"><p class="rb-k">H1 2025</p><div class="rb-track"><span class="rb-seg" style="--w:100.00%"></span></div><p class="rb-v">6,735.0</p></div>
+          <div class="rb-row"><p class="rb-k">H1 2026</p><div class="rb-track"><span class="rb-seg" style="--w:69.22%"></span></div><p class="rb-v">4,661.7</p></div>
+        </div>
+      </figure>
+
+      <h3 class="sub reveal">Income statement, FY2023 to FY2025</h3>
+      <div class="table-scroll reveal">
+        <table class="fin inc st" style="--n:3">
+          <caption>Income statement, RMB thousands</caption>
+          <thead><tr><th scope="col">Line</th><th scope="col" class="num">FY2023</th><th scope="col" class="num">FY2024</th><th scope="col" class="num">FY2025</th></tr></thead>
+          <tbody>
+            <tr class="tot"><th scope="row">Net revenues</th><td class="num" data-l="FY2023">14,948,129</td><td class="num" data-l="FY2024">14,401,249</td><td class="num" data-l="FY2025">12,556,023</td></tr>
+            <tr><th scope="row">Cost of products sold</th><td class="num" data-l="FY2023">14,099,151</td><td class="num" data-l="FY2024">13,572,020</td><td class="num" data-l="FY2025">11,832,617</td></tr>
+            <tr><th scope="row">Fulfillment expenses</th><td class="num" data-l="FY2023">400,538</td><td class="num" data-l="FY2024">381,035</td><td class="num" data-l="FY2025">345,222</td></tr>
+            <tr><th scope="row">Selling and marketing expenses</th><td class="num" data-l="FY2023">448,387</td><td class="num" data-l="FY2024">313,897</td><td class="num" data-l="FY2025">258,643</td></tr>
+            <tr><th scope="row">General and administrative expenses</th><td class="num" data-l="FY2023">224,202</td><td class="num" data-l="FY2024">70,907</td><td class="num" data-l="FY2025">69,459</td></tr>
+            <tr><th scope="row">Technology expenses</th><td class="num" data-l="FY2023">124,341</td><td class="num" data-l="FY2024">69,635</td><td class="num" data-l="FY2025">60,391</td></tr>
+            <tr><th scope="row">Other operating income (expense), net</th><td class="num" data-l="FY2023">(1,607)</td><td class="num" data-l="FY2024">8,359</td><td class="num" data-l="FY2025">7,932</td></tr>
+            <tr class="tot"><th scope="row">(Loss) income from operations</th><td class="num" data-l="FY2023">(350,097)</td><td class="num" data-l="FY2024">2,114</td><td class="num" data-l="FY2025">(2,377)</td></tr>
+            <tr><th scope="row">Interest expense</th><td class="num" data-l="FY2023">(20,141)</td><td class="num" data-l="FY2024">(28,331)</td><td class="num" data-l="FY2025">(35,572)</td></tr>
+            <tr class="tot"><th scope="row">Net loss</th><td class="num" data-l="FY2023">(353,433)</td><td class="num" data-l="FY2024">(20,776)</td><td class="num" data-l="FY2025">(22,515)</td></tr>
+            <tr><th scope="row">Net loss attributable to ordinary shareholders</th><td class="num" data-l="FY2023">(392,693)</td><td class="num" data-l="FY2024">(64,743)</td><td class="num" data-l="FY2025">(66,392)</td></tr>
+            <tr><th scope="row">Loss per share (RMB)</th><td class="num" data-l="FY2023">(2.33)</td><td class="num" data-l="FY2024">(0.38)</td><td class="num" data-l="FY2025">(0.38)</td></tr>
+            <tr><th scope="row">Weighted average shares</th><td class="num" data-l="FY2023">168,609,128</td><td class="num" data-l="FY2024">171,835,632</td><td class="num" data-l="FY2025">174,026,392</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="src reveal">Figures are as reported; negatives are in brackets. The gap between the net loss and the loss attributable to ordinary shareholders is mostly the adjustment for redeemable non-controlling interests (RMB 49.1 million in FY2025), the accretion on the 2020 investors&rsquo; holdings that Part III explains. The FY2025 net loss translates to US$3,219 thousand at about RMB 6.993 per US$. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000110465926052002/yi-20251231x20f.htm" target="_blank" rel="noopener">20-F, Apr 30, 2026</a></p>
+
+      <h3 class="sub reveal">The latest half-year</h3>
+      <div class="table-scroll reveal">
+        <table class="fin half st" style="--n:2">
+          <caption>Unaudited, RMB thousands</caption>
+          <thead><tr><th scope="col">Line</th><th scope="col" class="num">Q2 2025</th><th scope="col" class="num">Q2 2026</th><th scope="col" class="num">H1 2025</th><th scope="col" class="num">H1 2026</th></tr></thead>
+          <tbody>
+            <tr class="tot"><th scope="row">Net revenues</th><td class="num" data-l="Q2 2025">3,205,760</td><td class="num" data-l="Q2 2026">2,300,117</td><td class="num" data-l="H1 2025">6,735,039</td><td class="num" data-l="H1 2026">4,661,701</td></tr>
+            <tr><th scope="row">Cost of products sold</th><td class="num" data-l="Q2 2025">3,020,380</td><td class="num" data-l="Q2 2026">2,167,845</td><td class="num" data-l="H1 2025">6,354,564</td><td class="num" data-l="H1 2026">4,403,471</td></tr>
+            <tr><th scope="row">Fulfillment expenses</th><td class="num" data-l="Q2 2025">90,202</td><td class="num" data-l="Q2 2026">63,607</td><td class="num" data-l="H1 2025">183,768</td><td class="num" data-l="H1 2026">124,831</td></tr>
+            <tr><th scope="row">Selling and marketing expenses</th><td class="num" data-l="Q2 2025">66,162</td><td class="num" data-l="Q2 2026">58,084</td><td class="num" data-l="H1 2025">134,070</td><td class="num" data-l="H1 2026">116,108</td></tr>
+            <tr><th scope="row">General and administrative expenses</th><td class="num" data-l="Q2 2025">17,402</td><td class="num" data-l="Q2 2026">17,602</td><td class="num" data-l="H1 2025">35,743</td><td class="num" data-l="H1 2026">30,238</td></tr>
+            <tr><th scope="row">Technology expenses</th><td class="num" data-l="Q2 2025">14,869</td><td class="num" data-l="Q2 2026">19,027</td><td class="num" data-l="H1 2025">30,328</td><td class="num" data-l="H1 2026">33,413</td></tr>
+            <tr><th scope="row">Other operating income</th><td class="num" data-l="Q2 2025">3,350</td><td class="num" data-l="Q2 2026">2,804</td><td class="num" data-l="H1 2025">3,674</td><td class="num" data-l="H1 2026">3,150</td></tr>
+            <tr class="tot"><th scope="row">(Loss) income from operations</th><td class="num" data-l="Q2 2025">95</td><td class="num" data-l="Q2 2026">(23,244)</td><td class="num" data-l="H1 2025">240</td><td class="num" data-l="H1 2026">(43,210)</td></tr>
+            <tr class="tot"><th scope="row">Net loss</th><td class="num" data-l="Q2 2025">(7,265)</td><td class="num" data-l="Q2 2026">(31,653)</td><td class="num" data-l="H1 2025">(14,572)</td><td class="num" data-l="H1 2026">(58,448)</td></tr>
+            <tr><th scope="row">Net loss attributable to ordinary shareholders</th><td class="num" data-l="Q2 2025">(19,549)</td><td class="num" data-l="Q2 2026">(39,134)</td><td class="num" data-l="H1 2025">(37,198)</td><td class="num" data-l="H1 2026">(76,175)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="src reveal">Quarters are the three months ended June 30 and halves the six months ended June 30. The company attributes the second-quarter fall in net revenue (28.3%) mainly to its move to an asset-light model and the 2025 divestitures. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000095010326014069/dp253438_6k.htm" target="_blank" rel="noopener">Q2 2026 results 6-K, Sep 17, 2026</a></p>
+
+      <div class="claims reveal">
+        <h3 class="sub">In the company&rsquo;s own words: the second quarter of 2026</h3>
+        <p class="claims-flag">From the earnings release. Unaudited, not verified here, and the categories are the company&rsquo;s own definitions. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000095010326014069/dp253438_6k.htm" target="_blank" rel="noopener">Q2 2026 results 6-K, Sep 17, 2026</a></p>
+        <ul class="plain">
+          <li>Net revenue of &ldquo;promotional products&rdquo;, which the company says include its core promoted pharmaceuticals and those for which it has secured distribution rights, was RMB 60.7 million, up 121% on the year, with gross profit up 120%.</li>
+          <li>Total marketplace service revenue rose 18.2% in the first half of 2026.</li>
+          <li>Fulfilment expenses were RMB 63.6 million, 29.5% lower, or 2.76% of net revenue against 2.81 a year earlier.</li>
+          <li>Total operating expenses were RMB 155.5 million, 16.1% lower, including severance costs from workforce streamlining that the company links to its adoption of AI agents.</li>
+        </ul>
+      </div>
+
+      <div class="two-up">
+        <div class="reveal">
+          <h3 class="sub">Balance sheet</h3>
+          <div class="table-scroll">
+            <table class="fin bs st" style="--n:2">
+              <caption>At Dec 31, RMB thousands</caption>
+              <thead><tr><th scope="col">Line</th><th scope="col" class="num">2024</th><th scope="col" class="num">2025</th></tr></thead>
+              <tbody>
+            <tr><th scope="row">Cash and cash equivalents</th><td class="num" data-l="2024">462,289</td><td class="num" data-l="2025">510,967</td></tr>
+            <tr><th scope="row">Restricted cash</th><td class="num" data-l="2024">56,043</td><td class="num" data-l="2025">50,337</td></tr>
+            <tr><th scope="row">Short-term investments</th><td class="num" data-l="2024">none</td><td class="num" data-l="2025">50,031</td></tr>
+            <tr><th scope="row">Accounts receivable</th><td class="num" data-l="2024">413,101</td><td class="num" data-l="2025">259,686</td></tr>
+            <tr><th scope="row">Inventories</th><td class="num" data-l="2024">1,387,403</td><td class="num" data-l="2025">998,465</td></tr>
+            <tr class="tot"><th scope="row">Total current assets</th><td class="num" data-l="2024">2,649,657</td><td class="num" data-l="2025">2,124,859</td></tr>
+            <tr class="tot"><th scope="row">Total assets</th><td class="num" data-l="2024">2,787,750</td><td class="num" data-l="2025">2,200,242</td></tr>
+            <tr><th scope="row">Short-term borrowings</th><td class="num" data-l="2024">160,981</td><td class="num" data-l="2025">187,631</td></tr>
+            <tr><th scope="row">Accounts payable</th><td class="num" data-l="2024">1,721,425</td><td class="num" data-l="2025">1,282,368</td></tr>
+            <tr><th scope="row">Accrued expenses and other current liabilities</th><td class="num" data-l="2024">460,173</td><td class="num" data-l="2025">483,676</td></tr>
+            <tr class="tot"><th scope="row">Total current liabilities</th><td class="num" data-l="2024">2,342,579</td><td class="num" data-l="2025">1,953,675</td></tr>
+            <tr class="tot"><th scope="row">Total liabilities</th><td class="num" data-l="2024">2,406,988</td><td class="num" data-l="2025">1,985,821</td></tr>
+            <tr><th scope="row">Redeemable non-controlling interests (mezzanine)</th><td class="num" data-l="2024">1,038,914</td><td class="num" data-l="2025">935,917</td></tr>
+            <tr><th scope="row">Accumulated deficit</th><td class="num" data-l="2024">(3,883,992)</td><td class="num" data-l="2025">(3,950,384)</td></tr>
+            <tr class="tot"><th scope="row">Total deficit</th><td class="num" data-l="2024">(658,152)</td><td class="num" data-l="2025">(721,496)</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="src">Working capital was RMB 171,184 thousand at Dec 31, 2025. The 20-F&rsquo;s US$ translation of total assets is US$314,630 thousand. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000110465926052002/yi-20251231x20f.htm" target="_blank" rel="noopener">20-F, Apr 30, 2026</a></p>
+        </div>
+        <div class="reveal" style="--d:.08s">
+          <h3 class="sub">Cash flow</h3>
+          <div class="table-scroll">
+            <table class="fin cf st" style="--n:3">
+              <caption>Cash flows, RMB thousands</caption>
+              <thead><tr><th scope="col">Line</th><th scope="col" class="num">FY2024</th><th scope="col" class="num">FY2025</th><th scope="col" class="num">H1 2026</th></tr></thead>
+              <tbody>
+            <tr><th scope="row">Net cash from operating activities</th><td class="num" data-l="FY2024">263,016</td><td class="num" data-l="FY2025">119,142</td><td class="num" data-l="H1 2026">(103,158)</td></tr>
+            <tr><th scope="row">Net cash from investing activities</th><td class="num" data-l="FY2024">37,376</td><td class="num" data-l="FY2025">(53,723)</td><td class="num" data-l="H1 2026">(11,505)</td></tr>
+            <tr><th scope="row">Net cash from financing activities</th><td class="num" data-l="FY2024">(406,236)</td><td class="num" data-l="FY2025">(21,194)</td><td class="num" data-l="H1 2026">(124,919)</td></tr>
+            <tr class="tot"><th scope="row">Net change in cash and restricted cash</th><td class="num" data-l="FY2024">(105,216)</td><td class="num" data-l="FY2025">42,972</td><td class="num" data-l="H1 2026">(240,198)</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="src">FY2025 operating cash flow was positive mainly because working capital was released: inventories (RMB 387.1 million) and receivables (RMB 150.5 million) fell while payables used RMB 439.1 million. The net loss was RMB 22.5 million. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000110465926052002/yi-20251231x20f.htm" target="_blank" rel="noopener">20-F, Apr 30, 2026</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PART III OBLIGATIONS AND LIQUIDITY: the signature, owed and held on one scale ============ -->
+<section id="obligations" class="part sec-dark" aria-labelledby="obl-h">
+  <div class="wrap part-grid">
+    <aside class="part-side" aria-label="Part III">
+      <div class="part-rail">
+        <p class="part-no">Part III</p>
+        <p class="part-name">Obligations</p>
+        <p class="part-asof">As of Dec 31, 2025 and Jun 30, 2026</p>
+        <p class="part-src"><a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000110465926052002/yi-20251231x20f.htm" target="_blank" rel="noopener">20-F, Apr 30, 2026</a><br><a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000095010326014069/dp253438_6k.htm" target="_blank" rel="noopener">Q2 2026 results 6-K, Sep 17, 2026</a></p>
+      </div>
+    </aside>
+    <div class="part-body">
+      <div class="sec-head reveal">
+        <h2 id="obl-h">What is owed to investors, and what is held</h2>
+        <p>In 2020 investors put RMB 419.82 million and RMB 515 million into 111&rsquo;s operating subsidiary, 1 Pharmacy Technology (Shanghai), and agreed to take all necessary and reasonable steps to help it list on Shanghai&rsquo;s STAR Market. If the listing had not been completed, and the China Securities Regulatory Commission had not otherwise approved the registration application, by June 30, 2023, they could ask the company&rsquo;s Hong Kong subsidiary, Yao Wang, to buy back their equity at cost plus 6% a year. Certain of the investors have since made redemption requests under those terms, the 20-F says. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000110465926052002/yi-20251231x20f.htm" target="_blank" rel="noopener">20-F, Apr 30, 2026</a></p>
+      </div>
+
+      <figure class="ov reveal scale-up" aria-labelledby="ov-h">
+        <figcaption id="ov-h" class="ov-cap"><b>Owed and held</b>, RMB millions, all four bars on one scale</figcaption>
+        <div class="ov-date">
+          <p class="ov-d">Dec 31, 2025 <span>20-F</span></p>
+          <div class="ov-row ov-owed">
+            <p class="ov-k">Owed to the investors</p>
+            <div class="ov-track" role="img" aria-label="Owed at Dec 31, 2025, drawn at 100 percent: 22.2 percent due Jun 30, 2026 if exercised, 61.0 percent due Sep 30, 2026 if exercised, 16.8 percent already a current liability">
+              <span class="ov-seg s1" style="--w:22.21%"><b>249.8</b></span><span class="ov-seg s2" style="--w:60.99%"><b>686.1</b></span><span class="ov-seg s3" style="--w:16.80%"><b>189.0</b></span>
+            </div>
+            <p class="ov-tot">1,124.9</p>
+          </div>
+          <div class="ov-row ov-held">
+            <p class="ov-k">Held</p>
+            <div class="ov-track" role="img" aria-label="Held at Dec 31, 2025, drawn at 54.4 percent of the owed bar"><span class="ov-seg h" style="--w:54.35%"></span></div>
+            <p class="ov-tot">611.3</p>
+          </div>
+          <ul class="ov-legend" aria-label="Parts of the owed bar">
+            <li class="s1"><i></i>Due Jun 30, 2026 if holders exercise:&nbsp;<b>249.8</b></li>
+            <li class="s2"><i></i>Due Sep 30, 2026 if exercised, on 90 days&rsquo; notice:&nbsp;<b>686.1</b></li>
+            <li class="s3"><i></i>Already a current liability:&nbsp;<b>189.0</b></li>
+          </ul>
+          <p class="ov-legend-note">The Q4 release reports that the company repaid about RMB&nbsp;189.0 million to the investors in February 2026. That amount equals this segment&rsquo;s; the match is noted here and is not stated in the filings, which do not say which balance the repayment settled.</p>
+        </div>
+        <div class="ov-date">
+          <p class="ov-d">Jun 30, 2026 <span>Q2 release</span></p>
+          <div class="ov-row ov-owed">
+            <p class="ov-k">Owed to the investors</p>
+            <div class="ov-track" role="img" aria-label="Owed at Jun 30, 2026, drawn at 85.1 percent of the Dec 31, 2025 owed bar"><span class="motif-gh" aria-hidden="true" style="--w:100.00%"></span><span class="ov-seg s0" style="--w:85.05%"></span></div>
+            <p class="ov-tot">956.7</p>
+          </div>
+          <div class="ov-row ov-held">
+            <p class="ov-k">Held</p>
+            <div class="ov-track" role="img" aria-label="Held at Jun 30, 2026, drawn at 33.9 percent of the Dec 31, 2025 owed bar"><span class="motif-gh" aria-hidden="true" style="--w:54.35%"></span><span class="ov-seg h" style="--w:33.88%"></span></div>
+            <p class="ov-tot">381.1</p>
+          </div>
+          <ul class="ov-legend ov-legend-gh" aria-label="The outline"><li class="gh"><i></i>Hatched outline: the Dec 31, 2025 length of the same bar, for comparison</li></ul>
+        </div>
+        <p class="ov-read">Held as a share of owed: <b>54.3%</b> at Dec 31, 2025 and <b>39.8%</b> at Jun 30, 2026 (derived).</p>
+      </figure>
+
+      <div class="ov-caveat reveal">
+        <p><b>How to read the bars.</b> Owed is the amount recorded under redeemable non-controlling interests and under accrued expenses and other current liabilities for the 1 Pharmacy Technology investors. Held is cash and cash equivalents, restricted cash and short-term investments, the company&rsquo;s own total in the Q2 release; restricted cash is not freely available. The rights belong to the investors, and the money falls due only if they exercise them. At Dec 31, 2025 the 20-F&rsquo;s table by jurisdiction puts RMB&nbsp;518.7 million of the RMB&nbsp;561.0 million of cash and short-term investments (restricted cash excluded) in the PRC, RMB&nbsp;41.0 million in the Cayman Islands and RMB&nbsp;1.3 million in Hong Kong (summed here from the table). The investors&rsquo; right runs against Yao Wang, the company&rsquo;s Hong Kong subsidiary. The company has signed agreements or commitments with all of them to restructure the obligations through phased repayments over extended periods. At the date of the 20-F, investors holding 57.15% of the remaining principal had agreed to extend the due dates by another year; the Q1 release says investors representing 60.3% of the outstanding principal had agreed to restructure at extended periods, and the Q2 release says 63.8%. The Q1 release also reported RMB&nbsp;396.6 million held and RMB&nbsp;0.95 billion owed at Mar 31, 2026. On the Jun 30 bars the hatched outline repeats the Dec 31 length of the same bar, so the change reads along one scale. The auditor&rsquo;s reports on the FY2025 and FY2023 accounts each carry a going-concern paragraph that names this exposure, and each says the statements present fairly, in all material respects. The bars show the filed figures and are not a statement of solvency. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000110465926052002/yi-20251231x20f.htm" target="_blank" rel="noopener">20-F, Apr 30, 2026</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000095010326014069/dp253438_6k.htm" target="_blank" rel="noopener">Q2 2026 results 6-K, Sep 17, 2026</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000095010326008498/dp247988_6k.htm" target="_blank" rel="noopener">Q1 2026 results 6-K, Jun 4, 2026</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000095010326005529/dp245041_6k.htm" target="_blank" rel="noopener">Q4 and FY2025 6-K, Apr 9, 2026</a></p>
+      </div>
+
+      <div class="two-up two-up-d">
+        <div class="reveal">
+          <h3 class="sub">The terms, as filed</h3>
+          <dl class="terms">
+            <div><dt>Invested</dt><dd>RMB 419.82 million on Aug 17, 2020 and RMB 515 million on Dec 22, 2020, into 1 Pharmacy Technology.</dd></div>
+            <div><dt>Right</dt><dd>To ask Yao Wang to redeem all or part of the equity at the original cost plus 6% a year.</dd></div>
+            <div><dt>Recorded</dt><dd>RMB 935.9 million as redeemable non-controlling interests (mezzanine equity) and RMB 189.0 million in accrued expenses and other current liabilities, at Dec 31, 2025.</dd></div>
+            <div><dt>Repaid</dt><dd>About RMB 282.2 million to date, in the 20-F (to Mar 31, 2026) and again in the Sep 17, 2026 release. In February 2026, between the two dates drawn above, the company made repayments of about RMB 189.0 million to all the investors (Q4 release).</dd></div>
+            <div><dt>Due if exercised</dt><dd>RMB 249.8 million of carrying amount, with accumulated interest, on Jun 30, 2026, and RMB 686.1 million on Sep 30, 2026 on 90 days&rsquo; notice. The Sep 17 release came before the second date and no later filing reports what happened.</dd></div>
+            <div><dt>If the subsidiary lists</dt><dd>The unredeemed portions share in the listing proceeds in proportion to their equity.</dd></div>
+            <div><dt>Dispute</dt><dd>The company was in arbitration with one investor over redemption and says it had reached a settlement by the date of the 20-F.</dd></div>
+          </dl>
+          <p class="src"><a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000110465926052002/yi-20251231x20f.htm" target="_blank" rel="noopener">20-F, Apr 30, 2026</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000095010326014069/dp253438_6k.htm" target="_blank" rel="noopener">Q2 2026 results 6-K, Sep 17, 2026</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000095010326005529/dp245041_6k.htm" target="_blank" rel="noopener">Q4 and FY2025 6-K, Apr 9, 2026</a></p>
+        </div>
+        <div class="reveal" style="--d:.08s">
+          <h3 class="sub">Management&rsquo;s plans, from Note 2</h3>
+          <ol class="plans">
+            <li>Reschedule or restructure the redemption obligations with the holders.</li>
+            <li>Evaluate &ldquo;strategic capital restructuring initiatives, including potential mergers and acquisitions opportunities&rdquo;.</li>
+            <li>Keep bank facilities: a committed RMB 100 million line guaranteed through March 2030 with RMB 10 million undrawn, and a RMB 30 million line to October 2028 with RMB 20 million available, at the date of issue.</li>
+            <li>Use supplier chain financing, expand margins and cut costs.</li>
+          </ol>
+          <p class="plans-note">The company says these plans, if carried out, give it adequate resources for twelve months from the date of issue, and that if it cannot reschedule the payments to the remaining holders it &ldquo;will need to raise additional funds or reduce expenditures&rdquo;. Operating cash flow was RMB 119.1 million in FY2025 and a use of RMB 103.2 million in the first half of 2026, when financing also used RMB 124.9 million. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000110465926052002/yi-20251231x20f.htm" target="_blank" rel="noopener">20-F, Apr 30, 2026</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000095010326014069/dp253438_6k.htm" target="_blank" rel="noopener">Q2 2026 results 6-K, Sep 17, 2026</a></p>
+          <dl class="liq">
+            <div><dt>Held, Dec 31, 2025</dt><dd>RMB 611.3 million</dd></div>
+            <div><dt>Held, Jun 30, 2026</dt><dd>RMB 381.1 million</dd></div>
+            <div><dt>Change</dt><dd>37.7% lower</dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PART IV THE PROPOSAL AND CONTROL ============ -->
+<section id="proposal" class="part sec-white" aria-labelledby="pro-h">
+  <div class="wrap part-grid">
+    <aside class="part-side" aria-label="Part IV">
+      <div class="part-rail">
+        <p class="part-no">Part IV</p>
+        <p class="part-name">Proposal</p>
+        <p class="part-asof">Sep 16 to Sep 28, 2026; ownership as of Mar 31, 2026</p>
+        <p class="part-src"><a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000095010326014068/dp253510_6k.htm" target="_blank" rel="noopener">proposal 6-K, Sep 17, 2026</a><br><a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000095010326014553/dp253899_6k.htm" target="_blank" rel="noopener">special committee 6-K, Sep 28, 2026</a><br><a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000110465926052002/yi-20251231x20f.htm" target="_blank" rel="noopener">20-F, Apr 30, 2026</a></p>
+      </div>
+    </aside>
+    <div class="part-body">
+      <div class="sec-head reveal">
+        <h2 id="pro-h">A take-private proposal from the holders of the votes</h2>
+        <p>The two co-founders, who hold every Class B share, and a sponsor have proposed to buy the Class A shares they do not already own. The filings describe a proposal and a process. They do not describe a decision.</p>
+      </div>
+
+      <div class="two-up two-up-w prop-top">
+        <div class="reveal">
+          <h3 class="sub">The proposal, Sep 16, 2026</h3>
+          <dl class="terms">
+            <div><dt>From</dt><dd>Dr. Gang Yu and Mr. Junling Liu, co-founders and co-chairmen (Mr. Liu is also chief executive officer), and Huadeng Tech BioArray Ventures Ltd, the sponsor.</dd></div>
+            <div><dt>Price</dt><dd>US$0.226 per Class A share, or <b>US$4.52 per ADS</b>, in cash. One ADS represents twenty Class A shares.</dd></div>
+            <div><dt>Premium</dt><dd>29.5% to the ADS closing price on Sep 15, 2026, and 20% to the average closing price over the previous 60 trading days, according to the letter.</dd></div>
+            <div><dt>Funding</dt><dd>Equity capital: rollover equity from the co-founders and cash from the sponsor. The letter says the proposal would not be subject to any debt-financing uncertainty or delay and has no financing condition, and expects definitive commitments for the financing to be in place when the definitive documents are signed.</dd></div>
+            <div><dt>Votes</dt><dd>By a consortium agreement the co-founders have agreed to vote all their shares in favour. The Schedule 13D says that for six months after the agreement is signed (subject to extension or early termination) the consortium members work exclusively together, vote against any competing transaction, and do not make a competing proposal or acquire or dispose of any securities of the company.</dd></div>
+            <div><dt>Gate</dt><dd>The co-founders say they will not move forward unless a special committee of independent and disinterested directors approves, and that directors affiliated with them will not take part.</dd></div>
+            <div><dt>Status</dt><dd>&ldquo;Preliminary non-binding&rdquo;. The board said on Sep 17 that it had not yet evaluated it. On Sep 28 it formed a special committee of Jian Sun (chair), Nee Chuan Teo and Jun Luo, which will also consider &ldquo;other potential strategic alternatives&rdquo;, and said no decisions had been made.</dd></div>
+          </dl>
+          <p class="src"><a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000095010326014068/dp253510_6k.htm" target="_blank" rel="noopener">proposal 6-K, Sep 17, 2026</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000095010326014553/dp253899_6k.htm" target="_blank" rel="noopener">special committee 6-K, Sep 28, 2026</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000110465926108394/xslSCHEDULE_13D_X02/primary_doc.xml" target="_blank" rel="noopener">Schedule 13D, Sep 17, 2026</a></p>
+        </div>
+        <div class="reveal" style="--d:.08s">
+          <h3 class="sub">The founders made proposals in 2022 and withdrew them in 2024</h3>
+  <ol class="tl">
+        <li class="tl-i reveal"><p class="tl-d">Sep 9, 2022</p><div class="tl-t"><h3 class="tl-h">First proposal</h3><p>The co-founders and Shanghai Guosheng Capital Management propose to buy the Class A shares they do not own at US$3.66 per ADS, when one ADS represented two Class A shares.</p><p class="tl-s"><a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000110465926052002/yi-20251231x20f.htm" target="_blank" rel="noopener">20-F, Apr 30, 2026</a></p></div></li>
+        <li class="tl-i reveal"><p class="tl-d">Oct 29, 2022</p><div class="tl-t"><h3 class="tl-h">Second proposal</h3><p>The later withdrawal notice refers to a second preliminary non-binding proposal of this date. Its terms are not in the filings reviewed.</p><p class="tl-s"><a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000095010324002800/dp207395_6k.htm" target="_blank" rel="noopener">withdrawal 6-K, Feb 27, 2024</a></p></div></li>
+        <li class="tl-i reveal"><p class="tl-d">Feb 27, 2024</p><div class="tl-t"><h3 class="tl-h">Withdrawn</h3><p>The consortium of the co-founders and certain other investors withdraws both proposals and ends negotiation with the special committee.</p><p class="tl-s"><a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000095010324002800/dp207395_6k.htm" target="_blank" rel="noopener">withdrawal 6-K, Feb 27, 2024</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000110465926052002/yi-20251231x20f.htm" target="_blank" rel="noopener">20-F, Apr 30, 2026</a></p></div></li>
+        <li class="tl-i reveal"><p class="tl-d">Jan 24, 2025</p><div class="tl-t"><h3 class="tl-h">ADS ratio changes</h3><p>One ADS goes from two to twenty Class A shares, which the company says has the same effect as a one-for-ten reverse ADS split. No Class A shares are issued or cancelled.</p><p class="tl-s"><a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000095010325000279/dp223261_6k.htm" target="_blank" rel="noopener">ADS ratio 6-K, Jan 8, 2025</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000110465926052002/yi-20251231x20f.htm" target="_blank" rel="noopener">20-F, Apr 30, 2026</a></p></div></li>
+        <li class="tl-i reveal"><p class="tl-d">Feb 10, 2025</p><div class="tl-t"><h3 class="tl-h">Nasdaq closes the bid-price matter</h3><p>Nasdaq confirms that the ADS closing bid price was $1.00 or more for ten consecutive business days and that the company has regained compliance.</p><p class="tl-s"><a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000095010325001840/dp224803_6k.htm" target="_blank" rel="noopener">Nasdaq 6-K, Feb 11, 2025</a></p></div></li>
+        <li class="tl-i reveal"><p class="tl-d">Sep 16, 2026</p><div class="tl-t"><h3 class="tl-h">New proposal</h3><p>The co-founders and Huadeng Tech BioArray Ventures propose US$4.52 per ADS in cash. The company announces it the next day.</p><p class="tl-s"><a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000095010326014068/dp253510_6k.htm" target="_blank" rel="noopener">proposal 6-K, Sep 17, 2026</a></p></div></li>
+        <li class="tl-i reveal"><p class="tl-d">Sep 28, 2026</p><div class="tl-t"><h3 class="tl-h">Special committee formed</h3><p>Three independent directors are to evaluate the proposal and other potential strategic alternatives. No decisions have been made.</p><p class="tl-s"><a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000095010326014553/dp253899_6k.htm" target="_blank" rel="noopener">special committee 6-K, Sep 28, 2026</a></p></div></li>
+        </ol>
+        </div>
+        <p class="tl-note reveal">The ADS ratio change works as a one-for-ten reverse ADS split, so a price per ADS before Jan 24, 2025 is not comparable with one after it. At the current ratio the 2022 price would be US$36.60 per ADS (derived: US$3.66 times ten). The filings reviewed do not say how the special committee will respond or when. The buyer group&rsquo;s Schedule 13D says that if the proposed transaction is completed the ADSs would become eligible for termination of registration and would be delisted from Nasdaq. Nothing on this page is a recommendation. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000110465926108394/xslSCHEDULE_13D_X02/primary_doc.xml" target="_blank" rel="noopener">Schedule 13D, Sep 17, 2026</a></p>
+      </div>
+
+      <h3 class="sub reveal">Shares and votes</h3>
+      <div class="two-up two-up-c">
+        <div class="reveal">
+          <figure class="ctl reveal from-right" aria-label="The co-founders' share of share capital and of votes, drawn to scale">
+            <div class="ctl-row"><p class="ctl-k">Share capital</p><div class="ctl-track" role="img" aria-label="41.6 percent of share capital"><span class="ctl-seg" style="--w:41.60%"></span></div><p class="ctl-v">41.6%</p></div>
+            <div class="ctl-row"><p class="ctl-k">Votes</p><div class="ctl-track" role="img" aria-label="91.3 percent of votes"><span class="ctl-seg ctl-votes" style="--w:91.30%"></span></div><p class="ctl-v">91.3%</p></div>
+            <figcaption>The co-founders hold about 1.3% of the Class A shares and all of the Class B shares. Class B carries fifteen votes a share against one for Class A, and converts to Class A one for one. Figures from the proposal letter. The Schedule 13D filed the same day reports 2,266,328 Class A shares, 42.1% of share capital and 91.4% of votes for the consortium&rsquo;s reporting persons; this page does not reconcile the two sets of figures. The Class B terms are from the 20-F. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000095010326014068/dp253510_6k.htm" target="_blank" rel="noopener">proposal 6-K, Sep 17, 2026</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000110465926108394/xslSCHEDULE_13D_X02/primary_doc.xml" target="_blank" rel="noopener">Schedule 13D, Sep 17, 2026</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000110465926052002/yi-20251231x20f.htm" target="_blank" rel="noopener">20-F, Apr 30, 2026</a></figcaption>
+          </figure>
+        </div>
+        <div class="reveal" style="--d:.08s">
+          <p class="holders-cap">Beneficial ownership at Mar 31, 2026 (175,939,278 ordinary shares)</p>
+          <ul class="holders">
+            <li><p class="h-n"><b>Gang Yu</b></p><p class="h-c">468,362 Class A and 36,000,000 Class B</p><p class="h-p"><span><b>20.7%</b> of shares</span><span><b>45.7%</b> of votes</span></p></li>
+            <li><p class="h-n"><b>Junling Liu</b><span class="own-n">Class B held via Sunny Bay Global Limited (BVI), wholly owned by Mr. Liu</span></p><p class="h-c">1,797,966 Class A and 36,000,000 Class B</p><p class="h-p"><span><b>21.5%</b> of shares</span><span><b>45.8%</b> of votes</span></p></li>
+            <li><p class="h-n"><b>Sunny Bay Global Limited</b></p><p class="h-c">36,000,000 Class B</p><p class="h-p"><span><b>20.5%</b> of shares</span><span><b>45.6%</b> of votes</span></p></li>
+            <li><p class="h-n"><b>All directors and executive officers as a group</b></p><p class="h-c">2,449,339 Class A and 72,000,000 Class B</p><p class="h-p"><span><b>42.3%</b> of shares</span><span><b>91.4%</b> of votes</span></p></li>
+            <li><p class="h-n"><b>First Pharmacia International (BVCF Realization Fund)</b><span class="own-n">per Schedule 13D/A of Feb 27, 2024</span></p><p class="h-c">8,690,562 Class A</p><p class="h-p"><span><b>4.9%</b> of shares</span><span><b>0.7%</b> of votes</span></p></li>
+          </ul>
+          <p class="src">The 20-F shows 42.3% of shares and 91.4% of votes for directors and officers as a group, a slightly different date and basis from the letter. Directors Yang Chen, Nee Chuan Teo, Jian Sun and Jun Luo each hold under 1%. First Pharmacia&rsquo;s figure is from its Schedule 13D/A of Feb 27, 2024. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000110465926052002/yi-20251231x20f.htm" target="_blank" rel="noopener">20-F, Apr 30, 2026</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PART V GOVERNANCE, PEOPLE, AUDITOR ============ -->
+<section id="governance" class="part sec-tint" aria-labelledby="gov-h">
+  <div class="wrap part-grid">
+    <aside class="part-side" aria-label="Part V">
+      <div class="part-rail">
+        <p class="part-no">Part V</p>
+        <p class="part-name">Governance</p>
+        <p class="part-asof">As of the 20-F filed Apr 30, 2026, with later changes dated</p>
+        <p class="part-src"><a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000110465926052002/yi-20251231x20f.htm" target="_blank" rel="noopener">20-F, Apr 30, 2026</a></p>
+      </div>
+    </aside>
+    <div class="part-body">
+      <div class="sec-head reveal">
+        <h2 id="gov-h">Six directors, one dual-class vote, a new auditor</h2>
+        <p>Three of the six directors are independent and make up the special committee. The company is a Cayman Islands holding company with its operations in the People&rsquo;s Republic of China.</p>
+      </div>
+
+      <div class="two-up">
+        <div class="reveal">
+          <h3 class="sub">Board</h3>
+          <ol class="board">
+            <li class="bd"><span class="bd-n" aria-hidden="true">01</span><div class="bd-t"><b>Gang Yu</b><span class="bd-r">Co-founder and Co-Chairman</span></div><span class="bd-a">Age 67</span></li>
+            <li class="bd"><span class="bd-n" aria-hidden="true">02</span><div class="bd-t"><b>Junling Liu</b><span class="bd-r">Co-founder, Co-Chairman and Chief Executive Officer</span></div><span class="bd-a">Age 62</span></li>
+            <li class="bd"><span class="bd-n" aria-hidden="true">03</span><div class="bd-t"><b>Yang Chen</b><span class="bd-r">Director (since November 2024)</span></div><span class="bd-a">Age 56</span></li>
+            <li class="bd"><span class="bd-n" aria-hidden="true">04</span><div class="bd-t"><b>Nee Chuan Teo</b><span class="bd-r">Independent Director (since September 2018); audit committee chair and financial expert</span></div><span class="bd-a">Age 56</span></li>
+            <li class="bd"><span class="bd-n" aria-hidden="true">05</span><div class="bd-t"><b>Jian Sun</b><span class="bd-r">Independent Director</span></div><span class="bd-a">Age 62</span></li>
+            <li class="bd"><span class="bd-n" aria-hidden="true">06</span><div class="bd-t"><b>Jun Luo</b><span class="bd-r">Independent Director</span></div><span class="bd-a">Age 59</span></li>
+          </ol>
+          <p class="src">Mr. Liu has served as an independent director of Autohome Inc. since 2015; Dr. Yu and Mr. Liu co-founded the e-commerce company YHD.com. Mr. Yang Chen joined the board in November 2024, when Dr. Leon Lian Yong Chen resigned. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000110465926052002/yi-20251231x20f.htm" target="_blank" rel="noopener">20-F, Apr 30, 2026</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000095010324015850/dp220313_6k.htm" target="_blank" rel="noopener">board 6-K, Nov 4, 2024</a></p>
+        </div>
+        <div class="reveal" style="--d:.08s">
+          <h3 class="sub">Auditor and controls</h3>
+          <ul class="plain">
+            <li><b>Auditor.</b> Grant Thornton Zhitong Certified Public Accountants LLP (Shanghai), engaged in 2024, signed the FY2025 report on Apr 30, 2026. It replaced Deloitte Touche Tohmatsu, dismissed on Jul 19, 2024; Deloitte&rsquo;s letter to the SEC says it agrees with the company&rsquo;s statements about the dismissal. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000095010324010255/dp214579_6k.htm" target="_blank" rel="noopener">auditor 6-K, Jul 19, 2024</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000110465926052002/yi-20251231x20f.htm" target="_blank" rel="noopener">20-F, Apr 30, 2026</a></li>
+            <li><b>Critical audit matter.</b> Revenue recognition for sales to pharmacies, which were RMB 12,247.4 million, 97.5% of revenue. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000110465926052002/yi-20251231x20f.htm" target="_blank" rel="noopener">20-F, Apr 30, 2026</a></li>
+            <li><b>Internal control.</b> Management concluded that internal control over financial reporting was effective at Dec 31, 2025. There is no auditor attestation report, because the company is a non-accelerated filer. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000110465926052002/yi-20251231x20f.htm" target="_blank" rel="noopener">20-F, Apr 30, 2026</a></li>
+            <li><b>Nasdaq.</b> Nasdaq confirmed on Feb 10, 2025 that the ADS bid price had been at $1.00 or more for ten straight business days after the ADS ratio change, regained compliance with its minimum bid rule, and closed the matter. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000095010325001840/dp224803_6k.htm" target="_blank" rel="noopener">Nasdaq 6-K, Feb 11, 2025</a> <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000095010325000279/dp223261_6k.htm" target="_blank" rel="noopener">ADS ratio 6-K, Jan 8, 2025</a> The Sep 2026 releases still list the ability to cure any non-compliance with Nasdaq&rsquo;s continued listing criteria among their risks.</li>
+            <li><b>Dividends.</b> None has been paid, and the 20-F says there is no plan to pay any in the near future. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000110465926052002/yi-20251231x20f.htm" target="_blank" rel="noopener">20-F, Apr 30, 2026</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="two-up">
+        <div class="reveal">
+          <h3 class="sub">People, Dec 31, 2025</h3>
+          <div class="table-scroll">
+            <table class="fin emp">
+              <caption>Employees by function</caption>
+              <thead><tr><th scope="col">Function</th><th scope="col" class="num">Employees</th><th scope="col" class="num">Share</th></tr></thead>
+              <tbody>
+            <tr><th scope="row">Wholesale pharmacy business</th><td class="num">478</td><td class="num">45.0%</td></tr>
+            <tr><th scope="row">Retail pharmacy business</th><td class="num">69</td><td class="num">6.5%</td></tr>
+            <tr><th scope="row">Supply chain</th><td class="num">78</td><td class="num">7.3%</td></tr>
+            <tr><th scope="row">Procurement</th><td class="num">210</td><td class="num">19.8%</td></tr>
+            <tr><th scope="row">Research and development and IT</th><td class="num">144</td><td class="num">13.5%</td></tr>
+            <tr><th scope="row">General and administrative</th><td class="num">84</td><td class="num">7.9%</td></tr>
+            <tr class="tot"><th scope="row">Total</th><td class="num">1,063</td><td class="num">100%</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="src">Shares are derived from the counts and rounded. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000110465926052002/yi-20251231x20f.htm" target="_blank" rel="noopener">20-F, Apr 30, 2026</a></p>
+        </div>
+        <div class="reveal" style="--d:.08s">
+          <h3 class="sub">Structure and regulation</h3>
+          <ul class="plain">
+            <li>The company ended its variable interest entity arrangements in February 2022 and holds its former variable interest entities directly; it says it no longer relies on a VIE structure. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000110465926052002/yi-20251231x20f.htm" target="_blank" rel="noopener">20-F, Apr 30, 2026</a></li>
+            <li>It had made cumulative capital contributions of US$358.5 million to its PRC subsidiaries at the date of the 20-F. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000110465926052002/yi-20251231x20f.htm" target="_blank" rel="noopener">20-F, Apr 30, 2026</a></li>
+            <li>It says it has not received any inquiry, notice, warning, sanctions or regulatory objection from the China Securities Regulatory Commission about overseas listing approvals. It adds that it cannot assure that it will not be required to obtain approval from, or complete a filing with, the CSRC or other authorities to maintain the listing of its ADSs on Nasdaq or to conduct overseas offerings in the future. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000110465926052002/yi-20251231x20f.htm" target="_blank" rel="noopener">20-F, Apr 30, 2026</a></li>
+            <li>It says the US Public Company Accounting Oversight Board vacated its 2021 determinations in 2022, and that it does not believe its securities are at risk of a trading prohibition unless a new determination is made. <a class="src-l" href="https://www.sec.gov/Archives/edgar/data/1738906/000110465926052002/yi-20251231x20f.htm" target="_blank" rel="noopener">20-F, Apr 30, 2026</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PART VI THE FILED RECORD ============ -->
+<section id="record" class="part sec-white" aria-labelledby="rec-h">
+  <div class="wrap part-grid">
+    <aside class="part-side" aria-label="Part VI">
+      <div class="part-rail">
+        <p class="part-no">Part VI</p>
+        <p class="part-name">Record</p>
+        <p class="part-asof">Filing dates, Jun 2023 to Sep 2026</p>
+        <p class="part-src"><a href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;CIK=0001738906&amp;type=&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">EDGAR filing list</a></p>
+      </div>
+    </aside>
+    <div class="part-body">
+      <div class="sec-head reveal">
+        <h2 id="rec-h">The filed record</h2>
+        <p>The filings this page draws on, with the amendment and the late-filing notice for the annual reports, by EDGAR filing date, which can trail the event by a day or more. Director and officer ownership reports on Form 4 are on the EDGAR filing list and are not listed here. The company&rsquo;s own news page is at <a href="https://ir.111.com.cn/" target="_blank" rel="noopener">ir.111.com.cn</a>.</p>
+      </div>
+      <div class="table-scroll reveal">
+        <table class="fin led">
+          <caption>Since January 2025</caption>
+          <thead><tr><th scope="col">Filed</th><th scope="col">Form</th><th scope="col">What it is</th><th scope="col">Accession</th></tr></thead>
+          <tbody>
+            <tr><td class="num lg-d">Sep 28, 2026</td><td class="lg-f">6-K</td><td>Special committee formed to consider the proposal and other strategic alternatives</td><td class="lg-a"><a href="https://www.sec.gov/Archives/edgar/data/1738906/000095010326014553/dp253899_6k.htm" target="_blank" rel="noopener">0000950103-26-014553</a></td></tr>
+            <tr><td class="num lg-d">Sep 17, 2026</td><td class="lg-f">6-K</td><td>Second quarter 2026 unaudited results</td><td class="lg-a"><a href="https://www.sec.gov/Archives/edgar/data/1738906/000095010326014069/dp253438_6k.htm" target="_blank" rel="noopener">0000950103-26-014069</a></td></tr>
+            <tr><td class="num lg-d">Sep 17, 2026</td><td class="lg-f">6-K</td><td>The preliminary non-binding proposal, with the Sep 16 letter</td><td class="lg-a"><a href="https://www.sec.gov/Archives/edgar/data/1738906/000095010326014068/dp253510_6k.htm" target="_blank" rel="noopener">0000950103-26-014068</a></td></tr>
+            <tr><td class="num lg-d">Sep 17, 2026</td><td class="lg-f">13D</td><td>The buyer group&rsquo;s Schedule 13D: the consortium agreement and its terms</td><td class="lg-a"><a href="https://www.sec.gov/Archives/edgar/data/1738906/000110465926108394/xslSCHEDULE_13D_X02/primary_doc.xml" target="_blank" rel="noopener">0001104659-26-108394</a></td></tr>
+            <tr><td class="num lg-d">Jun 4, 2026</td><td class="lg-f">6-K</td><td>First quarter 2026 unaudited results</td><td class="lg-a"><a href="https://www.sec.gov/Archives/edgar/data/1738906/000095010326008498/dp247988_6k.htm" target="_blank" rel="noopener">0000950103-26-008498</a></td></tr>
+            <tr><td class="num lg-d">Apr 30, 2026</td><td class="lg-f">20-F</td><td>Annual report on Form 20-F for FY2025, with the auditor&rsquo;s going-concern paragraph</td><td class="lg-a"><a href="https://www.sec.gov/Archives/edgar/data/1738906/000110465926052002/yi-20251231x20f.htm" target="_blank" rel="noopener">0001104659-26-052002</a></td></tr>
+            <tr><td class="num lg-d">Apr 9, 2026</td><td class="lg-f">6-K</td><td>Fourth quarter and FY2025 results</td><td class="lg-a"><a href="https://www.sec.gov/Archives/edgar/data/1738906/000095010326005529/dp245041_6k.htm" target="_blank" rel="noopener">0000950103-26-005529</a></td></tr>
+            <tr><td class="num lg-d">Dec 17, 2025</td><td class="lg-f">6-K</td><td>Third quarter 2025 unaudited results</td><td class="lg-a"><a href="https://www.sec.gov/Archives/edgar/data/1738906/000095010325016208/dp238799_6k.htm" target="_blank" rel="noopener">0000950103-25-016208</a></td></tr>
+            <tr><td class="num lg-d">Sep 17, 2025</td><td class="lg-f">6-K</td><td>Second quarter 2025 unaudited results</td><td class="lg-a"><a href="https://www.sec.gov/Archives/edgar/data/1738906/000095010325011737/dp234475_6k.htm" target="_blank" rel="noopener">0000950103-25-011737</a></td></tr>
+            <tr><td class="num lg-d">Aug 29, 2025</td><td class="lg-f">20-F/A</td><td>Amendment to the FY2024 annual report: an updated opinion from the predecessor auditor, as requested by the SEC</td><td class="lg-a"><a href="https://www.sec.gov/Archives/edgar/data/1738906/000141057825001911/yi-20241231x20fa.htm" target="_blank" rel="noopener">0001410578-25-001911</a></td></tr>
+            <tr><td class="num lg-d">Jun 20, 2025</td><td class="lg-f">6-K</td><td>First quarter 2025 unaudited results</td><td class="lg-a"><a href="https://www.sec.gov/Archives/edgar/data/1738906/000095010325007647/dp230428_6k.htm" target="_blank" rel="noopener">0000950103-25-007647</a></td></tr>
+            <tr><td class="num lg-d">Apr 29, 2025</td><td class="lg-f">20-F</td><td>Annual report on Form 20-F for FY2024</td><td class="lg-a"><a href="https://www.sec.gov/Archives/edgar/data/1738906/000141057825000964/yi-20241231x20f.htm" target="_blank" rel="noopener">0001410578-25-000964</a></td></tr>
+            <tr><td class="num lg-d">Mar 20, 2025</td><td class="lg-f">6-K</td><td>Fourth quarter and FY2024 results</td><td class="lg-a"><a href="https://www.sec.gov/Archives/edgar/data/1738906/000095010325003665/dp226554_6k.htm" target="_blank" rel="noopener">0000950103-25-003665</a></td></tr>
+            <tr><td class="num lg-d">Feb 11, 2025</td><td class="lg-f">6-K</td><td>Regains compliance with Nasdaq&rsquo;s minimum bid price requirement</td><td class="lg-a"><a href="https://www.sec.gov/Archives/edgar/data/1738906/000095010325001840/dp224803_6k.htm" target="_blank" rel="noopener">0000950103-25-001840</a></td></tr>
+            <tr><td class="num lg-d">Jan 8, 2025</td><td class="lg-f">6-K</td><td>ADS ratio change, one ADS to twenty Class A shares</td><td class="lg-a"><a href="https://www.sec.gov/Archives/edgar/data/1738906/000095010325000279/dp223261_6k.htm" target="_blank" rel="noopener">0000950103-25-000279</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <details class="older reveal">
+        <summary>Earlier filings, June 2023 to December 2024</summary>
+        <div class="table-scroll">
+          <table class="fin led">
+            <caption>Earlier filings</caption>
+            <thead><tr><th scope="col">Filed</th><th scope="col">Form</th><th scope="col">What it is</th><th scope="col">Accession</th></tr></thead>
+            <tbody>
+            <tr><td class="num lg-d">Nov 27, 2024</td><td class="lg-f">6-K</td><td>Third quarter 2024 unaudited results</td><td class="lg-a"><a href="https://www.sec.gov/Archives/edgar/data/1738906/000095010324016821/dp221284_6k.htm" target="_blank" rel="noopener">0000950103-24-016821</a></td></tr>
+            <tr><td class="num lg-d">Nov 4, 2024</td><td class="lg-f">6-K</td><td>Board change: Dr. Leon Lian Yong Chen resigns and Mr. Yang Chen is appointed</td><td class="lg-a"><a href="https://www.sec.gov/Archives/edgar/data/1738906/000095010324015850/dp220313_6k.htm" target="_blank" rel="noopener">0000950103-24-015850</a></td></tr>
+            <tr><td class="num lg-d">Aug 29, 2024</td><td class="lg-f">6-K</td><td>Second quarter 2024 unaudited results</td><td class="lg-a"><a href="https://www.sec.gov/Archives/edgar/data/1738906/000095010324012764/dp217266_6k.htm" target="_blank" rel="noopener">0000950103-24-012764</a></td></tr>
+            <tr><td class="num lg-d">Jul 19, 2024</td><td class="lg-f">6-K</td><td>Dismissal of Deloitte as auditor, with Deloitte&rsquo;s letter to the SEC</td><td class="lg-a"><a href="https://www.sec.gov/Archives/edgar/data/1738906/000095010324010255/dp214579_6k.htm" target="_blank" rel="noopener">0000950103-24-010255</a></td></tr>
+            <tr><td class="num lg-d">May 23, 2024</td><td class="lg-f">6-K</td><td>First quarter 2024 unaudited results</td><td class="lg-a"><a href="https://www.sec.gov/Archives/edgar/data/1738906/000095010324007032/dp211571_6k.htm" target="_blank" rel="noopener">0000950103-24-007032</a></td></tr>
+            <tr><td class="num lg-d">May 14, 2024</td><td class="lg-f">20-F</td><td>Annual report on Form 20-F for FY2023</td><td class="lg-a"><a href="https://www.sec.gov/Archives/edgar/data/1738906/000110465924060922/yi-20231231x20f.htm" target="_blank" rel="noopener">0001104659-24-060922</a></td></tr>
+            <tr><td class="num lg-d">Apr 30, 2024</td><td class="lg-f">NT 20-F</td><td>Notice of late filing of the annual report for FY2023</td><td class="lg-a"><a href="https://www.sec.gov/Archives/edgar/data/1738906/000095010324005966/dp210065_nt20f.htm" target="_blank" rel="noopener">0000950103-24-005966</a></td></tr>
+            <tr><td class="num lg-d">Mar 21, 2024</td><td class="lg-f">6-K</td><td>Fourth quarter 2023 unaudited results</td><td class="lg-a"><a href="https://www.sec.gov/Archives/edgar/data/1738906/000095010324004098/dp208652_6k.htm" target="_blank" rel="noopener">0000950103-24-004098</a></td></tr>
+            <tr><td class="num lg-d">Feb 27, 2024</td><td class="lg-f">6-K</td><td>The consortium withdraws the 2022 going-private proposals</td><td class="lg-a"><a href="https://www.sec.gov/Archives/edgar/data/1738906/000095010324002800/dp207395_6k.htm" target="_blank" rel="noopener">0000950103-24-002800</a></td></tr>
+            <tr><td class="num lg-d">Nov 30, 2023</td><td class="lg-f">6-K</td><td>Third quarter 2023 unaudited results</td><td class="lg-a"><a href="https://www.sec.gov/Archives/edgar/data/1738906/000095010323016843/dp203355_6k.htm" target="_blank" rel="noopener">0000950103-23-016843</a></td></tr>
+            <tr><td class="num lg-d">Aug 24, 2023</td><td class="lg-f">6-K</td><td>Second quarter 2023 unaudited results</td><td class="lg-a"><a href="https://www.sec.gov/Archives/edgar/data/1738906/000095010323012539/dp199023_6k.htm" target="_blank" rel="noopener">0000950103-23-012539</a></td></tr>
+            <tr><td class="num lg-d">Jun 15, 2023</td><td class="lg-f">6-K</td><td>First quarter 2023 unaudited results</td><td class="lg-a"><a href="https://www.sec.gov/Archives/edgar/data/1738906/000095010323008820/dp195323_6k.htm" target="_blank" rel="noopener">0000950103-23-008820</a></td></tr>
+            <tr><td class="num lg-d">Apr 28, 2023</td><td class="lg-f">20-F</td><td>Annual report on Form 20-F for FY2022</td><td class="lg-a"><a href="https://www.sec.gov/Archives/edgar/data/1738906/000110465923051944/yi-20221231x20f.htm" target="_blank" rel="noopener">0001104659-23-051944</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DISCLOSURES AND CONTACT ============ -->
+<section id="disclosures" class="part sec-dark" aria-labelledby="dis-h">
+  <div class="wrap part-grid">
+    <aside class="part-side" aria-label="Disclosures">
+      <div class="part-rail">
+        <p class="part-no">Notes</p>
+        <p class="part-name">Disclosures</p>
+        <p class="part-asof">Read with the filings</p>
+      </div>
+    </aside>
+    <div class="part-body">
+      <div class="sec-head reveal">
+        <h2 id="dis-h">What this page does not settle</h2>
+        <p>Choices made in reading the filings, and what was left out.</p>
+      </div>
+      <ol class="notes reveal">
+        <li><b>Currency.</b> The reporting currency is the renminbi. The US dollar figures in the filings are convenience translations at the rate on the balance-sheet date (about RMB 6.993 per US$ for FY2025; the Q2 2026 release uses about RMB 6.785). Figures here are in RMB unless marked US$, and the millions are derived from the reported thousands.</li>
+        <li><b>Names.</b> 111&rsquo;s own documents use different English names for the same businesses. The 20-F calls <span class="zh" lang="zh-Hans">1药网</span> &ldquo;1 Medicine Marketplace&rdquo; and <span class="zh" lang="zh-Hans">1药城</span> &ldquo;1 Pharmacy&rdquo;; the September 2026 releases call the retail pharmacy &ldquo;1 Pharmacy&rdquo; and the B2B platform &ldquo;1 Medicine&rdquo;; the investor relations site still says &ldquo;1 Drugstore&rdquo; and &ldquo;1 Drug Mall&rdquo;, which the 20-F gives as their earlier names. This page leads with the Chinese names.</li>
+        <li><b>Website claims.</b> The corporate website, in Chinese, says the company is a leader in China&rsquo;s internet medicine and health sector, that it was the first such company to list in the United States, and that it follows an S2B2C model. The first-to-list and S2B2C claims are not in the filings. The filings use &ldquo;leading&rdquo; and &ldquo;early mover&rdquo; language about the company&rsquo;s own position, which is the company&rsquo;s view. None of these claims is verified here. <a class="src-l" href="https://corporate.111.com.cn/" target="_blank" rel="noopener">Corporate site</a></li>
+        <li><b>Left out.</b> The live share quote on the investor relations site, its listing of third-party research, its stock imagery, and the photographs of partnership signings, which show named people and other companies. Directors appear with the roles, ages and background the 20-F gives, and without portraits.</li>
+        <li><b>Nasdaq dates.</b> The 20-F gives the start of Nasdaq listing as Sep 12, 2018 in Item 9 and Sep 15, 2018 in Item 4. This page says September 2018.</li>
+        <li><b>ADS counts.</b> One ADS has represented twenty Class A shares since Jan 24, 2025 and two before. Per-ADS figures before and after that date are not comparable.</li>
+        <li><b>Derived figures.</b> Shares of revenue, segment margins, the share of owed obligations held, the bar lengths and the million-RMB figures are computed here from reported numbers and are labelled where they appear. The US$ translations are the company&rsquo;s.</li>
+        <li><b>Not covered.</b> The 20-F&rsquo;s discussion of PRC drug-price policy and centralized procurement, the company&rsquo;s use of home-country practice in place of some Nasdaq governance rules, the full June 30, 2026 balance sheet in the Q2 release, and the director and officer share transactions reported on Form 4, which are on the EDGAR filing list. Read these in the filings.</li>
+        <li><b>As of.</b> The latest filing reviewed is the 6-K of Sep 28, 2026. Anything after that, including the response to the proposal, is not known to this page.</li>
+      </ol>
+
+      <div id="contact" class="contact reveal">
+        <h3 class="sub">Contact investor relations</h3>
+        <ul class="contact-list">
+          <li><span>Investor relations</span><a href="mailto:ir@111.com.cn">ir@111.com.cn</a></li>
+          <li><span>Media</span><a href="mailto:press@111.com.cn">press@111.com.cn</a></li>
+          <li><span>Telephone</span><a href="tel:+862120536666">+86 21 2053 6666</a></li>
+          <li><span>Address</span><b>10th Floor, T1, Yuzhongxin, No. 268 Yubei Road, Pudong New Area, Shanghai 201204, PRC</b></li>
+          <li><span>Investor relations site</span><a href="https://ir.111.com.cn/" target="_blank" rel="noopener">ir.111.com.cn</a></li>
+          <li><span>Corporate site, in Chinese</span><a href="https://corporate.111.com.cn/" target="_blank" rel="noopener">corporate.111.com.cn</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <a class="footer-logo" href="#hero"><span class="logo-chip"><img src="img/oneoneone-logo.png" alt="111, Inc. (1药网)" width="124" height="55"></span></a>
+      <ul class="footer-links">
+        <li><a href="https://ir.111.com.cn/" target="_blank" rel="noopener">Official investor relations site</a></li>
+        <li><a href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;CIK=0001738906&amp;type=&amp;dateb=&amp;owner=include&amp;count=40" target="_blank" rel="noopener">SEC filings (EDGAR)</a></li>
+        <li><a href="https://corporate.111.com.cn/" target="_blank" rel="noopener">corporate.111.com.cn (Chinese)</a></li>
+        <li><a href="#obligations">Obligations</a></li>
+        <li><a href="#record">Filed record</a></li>
+      </ul>
+    </div>
+    <p class="fls"><b>Sources and method:</b> Figures come from the company&rsquo;s annual report on Form 20-F for the year ended December 31, 2025 and its Forms 20-F for earlier years, and from its reports on Form 6-K through the one filed September 28, 2026, each linked beside the item. This is a foreign private issuer, so the filings are 20-F and 6-K, not 10-K and 10-Q; read &ldquo;most recent 10-K and 10-Q&rdquo; in the notice above as the most recent 20-F and 6-K. The reporting currency is the renminbi. Financial tables are in RMB thousands as reported and periods are labeled by their end date; the US dollar figures are the company&rsquo;s convenience translations. Derived numbers are labeled where they appear: million-RMB figures, shares of revenue, segment margins, the share of the owed amounts held, the share of employees by the company&rsquo;s own table, and the lengths of bars and the widths of the stacked segments, which are drawn to the reported values. Statements the company makes about itself in its releases and websites are marked as its own and are not verified here. The logo and the three platform marks are the company&rsquo;s own; the red numeral in the hero and favicon is redrawn from the logo, and the capsules that move through it are decoration. No share prices, portraits or partner photographs are used.</p>
+    <p class="fls"><b>About this page:</b> This is an independent design concept and is not the official 111, Inc. investor relations website. It is not affiliated with, endorsed by, or maintained by 111, Inc. Figures were assembled from public materials at a point in time and may be outdated; verify every figure against the company's official SEC filings. For official information, visit <a href="https://ir.111.com.cn/">ir.111.com.cn</a>.</p>
+    <p class="fls"><b>Forward-Looking Statements:</b> This website contains forward-looking statements within the meaning of the Private Securities Litigation Reform Act of 1995, including statements regarding the company's ability to continue as a going concern, the redemption rights of the investors in 1 Pharmacy Technology and the terms on which they are restructured, the preliminary non-binding proposal made by the company's co-founders and a sponsor and whether any definitive agreement results, the voting control held by the holders of Class B ordinary shares, the company's ability to maintain the listing of its ADSs on the Nasdaq Global Market, competition in the PRC pharmaceutical retail and wholesale market, the effect of its move to an asset-light model on revenue, and PRC regulation of online pharmacies and overseas listings. These statements involve known and unknown risks, uncertainties, and other factors that may cause actual results to differ materially from those expressed or implied. We undertake no obligation to update any forward-looking statements except as required by law. See the company's SEC filings, including its most recent 10-K and 10-Q, for a full discussion of risk factors.</p>
+    <p class="market-note">Market data, where shown, is delayed at least 15 minutes and provided for this concept only. Real-time quotes and official figures are available through the company's investor relations site and SEC filings. This concept page shows no live or delayed share quote.</p>
+  </div>
+</footer>
+
+<script>
+/* counters: hardened count-up for SOURCED figures only (new: only, D26; scaffold refuses it in ir: mode). Band: either.
+   Integrity: markup ships the REAL final string; JS animates 0 -> target and restores that string exactly. Runs BEFORE
+   motion.js: counts on mc:reveal of its nearest .reveal (a counter outside any .reveal is given .reveal); no 2nd observer. */
+(function(){
+  var reduce=!!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  var sel='[data-count]';
+  [].forEach.call(document.querySelectorAll(sel),function(el){
+    el.__mcFinal=el.textContent;                                    /* authored string, captured once */
+    if(!el.closest('.reveal'))el.classList.add('reveal');           /* join the one reveal observer (motion.js runs next) */
+  });
+  function countUp(el){
+    if(el.__mcStarted)return; el.__mcStarted=true;                  /* never twice: a 2nd run would capture a mid-count string */
+    var target=parseFloat(el.dataset.count); if(!isFinite(target))return;
+    var dec=parseInt(el.dataset.decimals||'0',10)||0,pre=el.dataset.prefix||'',suf=el.dataset.suffix||'',
+        loc=el.dataset.locale||document.documentElement.lang||'en-US',fmt,
+        finalText=el.__mcFinal!=null?el.__mcFinal:el.textContent,dur=1400,t0=-1,done=false;  /* -1, not 0: a 0 timestamp is falsy */
+    try{fmt=new Intl.NumberFormat(loc,{minimumFractionDigits:dec,maximumFractionDigits:dec})}
+    catch(x){fmt=new Intl.NumberFormat('en-US',{minimumFractionDigits:dec,maximumFractionDigits:dec})}
+    function finish(){if(done)return;done=true;el.textContent=finalText}   /* the authored string always wins */
+    function frame(t){
+      if(done)return;
+      if(t0<0){t0=t;requestAnimationFrame(frame);return}                      /* frame 1 only reads the clock */
+      var p=Math.min((t-t0)/dur,1);
+      if(p>=1){finish();return}
+      el.textContent=pre+fmt.format((1-Math.pow(1-p,3))*target)+suf;
+      requestAnimationFrame(frame);
+    }
+    setTimeout(finish,dur+400);                                             /* rAF throttled or killed: the real value still lands */
+    requestAnimationFrame(frame);
+  }
+  document.addEventListener('mc:reveal',function(e){
+    if(reduce||(e.detail&&e.detail.reduced))return;                         /* reduced motion: the real value simply stays */
+    var t=e.target;if(!t||!t.querySelectorAll)return;
+    var list=[].slice.call(t.querySelectorAll(sel));
+    if(t.matches&&t.matches(sel))list.unshift(t);
+    list.forEach(function(el){if(el.closest('.reveal')===t)countUp(el)});  /* a nested .reveal counts on its own reveal */
+  });
+})();
+</script>
+<script>
+/* mediaconsole motion: inlined by scaffold.mjs at the end of body, identical on every page; never edit it.
+   Sets html.js, runs the ONE reveal observer (fires the mc:reveal hook), scroll-spy, hamburger aria, and the
+   #hero-motif .paused toggle (off-screen, hidden tab, [data-motif-toggle]). Null-guarded: a failure reveals everything. */
+(function(){
+  var d=document,root=d.documentElement;
+  root.classList.add('js');
+  var reduce=!!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  var hasIO='IntersectionObserver' in window;
+  function fire(el,name,detail){
+    var ev;
+    try{ev=new CustomEvent(name,{bubbles:true,detail:detail})}
+    catch(x){ev=d.createEvent('CustomEvent');ev.initCustomEvent(name,true,false,detail)}
+    el.dispatchEvent(ev);
+  }
+  /* mc:reveal fires ONCE per .reveal element, bubbling, as .in lands; detail.reduced is true under reduced motion.
+     Components hook here (counters.js) instead of adding a second observer. */
+  function show(el){
+    if(el.classList.contains('in'))return;
+    el.classList.add('in');
+    fire(el,'mc:reveal',{reduced:reduce});
+  }
+  try{
+    var els=[].slice.call(d.querySelectorAll('.reveal'));
+    if(reduce||!hasIO){els.forEach(show)}
+    else{
+      var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){io.unobserve(e.target);show(e.target)}})},{threshold:.12});
+      els.forEach(function(el){io.observe(el)});
+    }
+  }catch(err){root.classList.remove('js');[].forEach.call(d.querySelectorAll('.reveal'),function(el){el.classList.add('in')})}
+  try{
+    var burger=d.querySelector('.nav-burger'),links=d.getElementById('nav-links'),nav=d.querySelector('.site-nav');
+    if(burger&&links){
+      var setOpen=function(o){links.classList.toggle('open',o);burger.setAttribute('aria-expanded',o?'true':'false')};
+      burger.addEventListener('click',function(){setOpen(!links.classList.contains('open'))});
+      links.addEventListener('click',function(e){if(e.target.closest&&e.target.closest('a'))setOpen(false)});
+      d.addEventListener('keydown',function(e){if((e.key==='Escape'||e.key==='Esc')&&links.classList.contains('open')){setOpen(false);burger.focus()}});
+    }
+    if(nav){var onScroll=function(){nav.classList.toggle('scrolled',window.scrollY>8)};window.addEventListener('scroll',onScroll,{passive:true});onScroll()}
+  }catch(err){}
+  try{
+    var na=[].slice.call(d.querySelectorAll('.nav-links a[href^="#"]:not(.btn)'));
+    if(na.length&&hasIO){
+      var so=new IntersectionObserver(function(en){en.forEach(function(e){
+        if(!e.isIntersecting)return;var id='#'+e.target.id;
+        na.forEach(function(a){var on=a.getAttribute('href')===id;a.classList.toggle('active',on);if(on)a.setAttribute('aria-current','location');else a.removeAttribute('aria-current')});
+      })},{rootMargin:'-40% 0px -55% 0px'});
+      na.forEach(function(a){var t=d.getElementById(a.getAttribute('href').slice(1));if(t)so.observe(t)});
+    }
+  }catch(err){}
+  /* hero motif pause: toggles .paused on #hero-motif (off-screen, hidden tab, or the user's [data-motif-toggle]).
+     The class is the whole contract: substrate CSS pauses every CSS animation inside it; JS motifs watch it (wave.js). */
+  try{
+    var motif=d.getElementById('hero-motif');
+    if(motif&&!reduce){
+      var hero=d.getElementById('hero')||motif,hv=true,user=false,tg=[].slice.call(d.querySelectorAll('[data-motif-toggle]'));
+      var sm=function(){var p=user||!hv||d.hidden;motif.classList.toggle('paused',p)};
+      if(hasIO)new IntersectionObserver(function(en){en.forEach(function(e){hv=e.isIntersecting});sm()},{threshold:0}).observe(hero);
+      d.addEventListener('visibilitychange',sm);
+      tg.forEach(function(b){
+        b.setAttribute('aria-pressed','false');
+        b.addEventListener('click',function(){user=!user;tg.forEach(function(t){t.setAttribute('aria-pressed',user?'true':'false')});sm()});
+      });
+    }
+  }catch(err){}
+})();
+</script>
+</body>
+</html>
